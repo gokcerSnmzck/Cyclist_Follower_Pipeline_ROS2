@@ -1,0 +1,17 @@
+/home/gokcer/my_nodes_project/install/fusion_node/lib/fusion_node/test_detection_publisher.py
+/home/gokcer/my_nodes_project/install/fusion_node/lib/fusion_node/fusion_node.py
+/home/gokcer/my_nodes_project/install/fusion_node/share/ament_index/resource_index/package_run_dependencies/fusion_node
+/home/gokcer/my_nodes_project/install/fusion_node/share/ament_index/resource_index/parent_prefix_path/fusion_node
+/home/gokcer/my_nodes_project/install/fusion_node/share/fusion_node/environment/ament_prefix_path.sh
+/home/gokcer/my_nodes_project/install/fusion_node/share/fusion_node/environment/ament_prefix_path.dsv
+/home/gokcer/my_nodes_project/install/fusion_node/share/fusion_node/environment/path.sh
+/home/gokcer/my_nodes_project/install/fusion_node/share/fusion_node/environment/path.dsv
+/home/gokcer/my_nodes_project/install/fusion_node/share/fusion_node/local_setup.bash
+/home/gokcer/my_nodes_project/install/fusion_node/share/fusion_node/local_setup.sh
+/home/gokcer/my_nodes_project/install/fusion_node/share/fusion_node/local_setup.zsh
+/home/gokcer/my_nodes_project/install/fusion_node/share/fusion_node/local_setup.dsv
+/home/gokcer/my_nodes_project/install/fusion_node/share/fusion_node/package.dsv
+/home/gokcer/my_nodes_project/install/fusion_node/share/ament_index/resource_index/packages/fusion_node
+/home/gokcer/my_nodes_project/install/fusion_node/share/fusion_node/cmake/fusion_nodeConfig.cmake
+/home/gokcer/my_nodes_project/install/fusion_node/share/fusion_node/cmake/fusion_nodeConfig-version.cmake
+/home/gokcer/my_nodes_project/install/fusion_node/share/fusion_node/package.xml

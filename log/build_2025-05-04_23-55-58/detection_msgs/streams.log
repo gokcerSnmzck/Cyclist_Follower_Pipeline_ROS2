@@ -1,0 +1,278 @@
+[0.061s] Invoking command in '/home/gokcer/my_nodes_project/build/detection_msgs': CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble /usr/bin/cmake /home/gokcer/my_nodes_project/src/detection_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/gokcer/my_nodes_project/install/detection_msgs
+[2.340s] -- The C compiler identification is GNU 11.4.0
+[3.173s] -- The CXX compiler identification is GNU 11.4.0
+[3.207s] -- Detecting C compiler ABI info
+[3.400s] -- Detecting C compiler ABI info - done
+[3.415s] -- Check for working C compiler: /usr/bin/cc - skipped
+[3.416s] -- Detecting C compile features
+[3.432s] -- Detecting C compile features - done
+[3.447s] -- Detecting CXX compiler ABI info
+[3.635s] -- Detecting CXX compiler ABI info - done
+[3.652s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[3.652s] -- Detecting CXX compile features
+[3.653s] -- Detecting CXX compile features - done
+[3.678s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[4.105s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[4.269s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[4.458s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[4.524s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[4.679s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[4.930s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[5.039s] -- Found std_msgs: 4.8.0 (/opt/ros/humble/share/std_msgs/cmake)
+[5.107s] -- Found geometry_msgs: 4.8.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[5.740s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[6.214s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[6.788s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[6.818s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[6.821s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[6.875s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[6.876s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[6.876s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[6.877s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[6.913s] -- Found PythonExtra: .so  
+[7.137s] -- Configuring done
+[7.194s] -- Generating done
+[7.212s] -- Build files have been written to: /home/gokcer/my_nodes_project/build/detection_msgs
+[7.222s] Invoked command in '/home/gokcer/my_nodes_project/build/detection_msgs' returned '0': CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble /usr/bin/cmake /home/gokcer/my_nodes_project/src/detection_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/gokcer/my_nodes_project/install/detection_msgs
+[7.225s] Invoking command in '/home/gokcer/my_nodes_project/build/detection_msgs': CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble /usr/bin/cmake --build /home/gokcer/my_nodes_project/build/detection_msgs -- -j8 -l8
+[7.286s] [  1%] [34m[1mGenerating C code for ROS interfaces[0m
+[7.308s] [  3%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[7.321s] [  3%] Built target ament_cmake_python_symlink_detection_msgs
+[7.864s] running egg_info
+[7.865s] creating detection_msgs.egg-info
+[7.866s] writing detection_msgs.egg-info/PKG-INFO
+[7.868s] writing dependency_links to detection_msgs.egg-info/dependency_links.txt
+[7.868s] writing top-level names to detection_msgs.egg-info/top_level.txt
+[7.868s] writing manifest file 'detection_msgs.egg-info/SOURCES.txt'
+[7.872s] reading manifest file 'detection_msgs.egg-info/SOURCES.txt'
+[7.872s] writing manifest file 'detection_msgs.egg-info/SOURCES.txt'
+[7.937s] [  3%] Built target ament_cmake_python_build_detection_msgs_egg
+[8.962s] [  3%] Built target detection_msgs__cpp
+[8.998s] [  5%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[9.001s] [  7%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[9.003s] [  9%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[9.325s] [ 10%] [32mBuilding C object CMakeFiles/detection_msgs__rosidl_generator_c.dir/rosidl_generator_c/detection_msgs/msg/detail/bounding_box2_d__functions.c.o[0m
+[9.330s] [ 12%] [32mBuilding C object CMakeFiles/detection_msgs__rosidl_generator_c.dir/rosidl_generator_c/detection_msgs/msg/detail/detection2_d__functions.c.o[0m
+[9.339s] [ 14%] [32mBuilding C object CMakeFiles/detection_msgs__rosidl_generator_c.dir/rosidl_generator_c/detection_msgs/msg/detail/target_position__functions.c.o[0m
+[9.347s] [ 16%] [32mBuilding C object CMakeFiles/detection_msgs__rosidl_generator_c.dir/rosidl_generator_c/detection_msgs/msg/detail/detection2_d_array__functions.c.o[0m
+[9.654s] [ 18%] [32m[1mLinking C shared library libdetection_msgs__rosidl_generator_c.so[0m
+[9.733s] [ 18%] Built target detection_msgs__rosidl_generator_c
+[9.761s] [ 20%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[9.770s] [ 21%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[9.785s] [ 23%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[10.554s] [ 25%] [32mBuilding CXX object CMakeFiles/detection_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/detection_msgs/msg/detail/dds_fastrtps/detection2_d__type_support.cpp.o[0m
+[10.555s] [ 27%] [32mBuilding CXX object CMakeFiles/detection_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/detection_msgs/msg/detail/dds_fastrtps/bounding_box2_d__type_support.cpp.o[0m
+[10.557s] [ 29%] [32mBuilding CXX object CMakeFiles/detection_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/detection_msgs/msg/detail/dds_fastrtps/detection2_d_array__type_support.cpp.o[0m
+[11.426s] [ 30%] [32mBuilding C object CMakeFiles/detection_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/detection_msgs/msg/detail/bounding_box2_d__type_support.c.o[0m
+[11.473s] [ 32%] [32mBuilding CXX object CMakeFiles/detection_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/detection_msgs/msg/detail/dds_fastrtps/target_position__type_support.cpp.o[0m
+[11.532s] [ 34%] [32mBuilding C object CMakeFiles/detection_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/detection_msgs/msg/detail/detection2_d__type_support.c.o[0m
+[11.635s] [ 36%] [32mBuilding C object CMakeFiles/detection_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/detection_msgs/msg/detail/detection2_d_array__type_support.c.o[0m
+[11.659s] [ 38%] [32mBuilding CXX object CMakeFiles/detection_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/detection_msgs/msg/bounding_box2_d__type_support.cpp.o[0m
+[11.683s] [ 40%] [32mBuilding CXX object CMakeFiles/detection_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/detection_msgs/msg/detail/bounding_box2_d__type_support.cpp.o[0m
+[11.733s] [ 41%] [32mBuilding CXX object CMakeFiles/detection_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/detection_msgs/msg/detection2_d__type_support.cpp.o[0m
+[11.809s] [ 43%] [32mBuilding C object CMakeFiles/detection_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/detection_msgs/msg/detail/target_position__type_support.c.o[0m
+[11.819s] [ 45%] [32mBuilding CXX object CMakeFiles/detection_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/detection_msgs/msg/detection2_d_array__type_support.cpp.o[0m
+[11.924s] [ 47%] [32m[1mLinking C shared library libdetection_msgs__rosidl_typesupport_introspection_c.so[0m
+[11.938s] [ 49%] [32mBuilding CXX object CMakeFiles/detection_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/detection_msgs/msg/target_position__type_support.cpp.o[0m
+[11.995s] [ 50%] [32mBuilding CXX object CMakeFiles/detection_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/detection_msgs/msg/bounding_box2_d__type_support.cpp.o[0m
+[12.064s] [ 50%] Built target detection_msgs__rosidl_typesupport_introspection_c
+[12.068s] [ 52%] [32m[1mLinking CXX shared library libdetection_msgs__rosidl_typesupport_c.so[0m
+[12.098s] [ 54%] [32mBuilding CXX object CMakeFiles/detection_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/detection_msgs/msg/detection2_d__type_support.cpp.o[0m
+[12.104s] [ 56%] [32mBuilding CXX object CMakeFiles/detection_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/detection_msgs/msg/detail/detection2_d__type_support.cpp.o[0m
+[12.259s] [ 56%] Built target detection_msgs__rosidl_typesupport_c
+[12.292s] [ 58%] [32mBuilding CXX object CMakeFiles/detection_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/detection_msgs/msg/detail/detection2_d_array__type_support.cpp.o[0m
+[12.359s] [ 60%] [32mBuilding CXX object CMakeFiles/detection_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/detection_msgs/msg/detection2_d_array__type_support.cpp.o[0m
+[12.527s] [ 61%] [32mBuilding CXX object CMakeFiles/detection_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/detection_msgs/msg/detail/bounding_box2_d__type_support_c.cpp.o[0m
+[12.569s] [ 63%] [32mBuilding CXX object CMakeFiles/detection_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/detection_msgs/msg/detail/detection2_d__type_support_c.cpp.o[0m
+[12.767s] [ 65%] [32mBuilding CXX object CMakeFiles/detection_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/detection_msgs/msg/detail/detection2_d_array__type_support_c.cpp.o[0m
+[13.235s] [ 67%] [32mBuilding CXX object CMakeFiles/detection_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/detection_msgs/msg/target_position__type_support.cpp.o[0m
+[13.449s] [ 69%] [32mBuilding CXX object CMakeFiles/detection_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/detection_msgs/msg/detail/target_position__type_support_c.cpp.o[0m
+[13.603s] [ 70%] [32mBuilding CXX object CMakeFiles/detection_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/detection_msgs/msg/detail/target_position__type_support.cpp.o[0m
+[13.932s] [ 72%] [32m[1mLinking CXX shared library libdetection_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[14.420s] [ 72%] Built target detection_msgs__rosidl_typesupport_fastrtps_cpp
+[14.497s] [ 74%] [32m[1mLinking CXX shared library libdetection_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[14.505s] [ 76%] [32m[1mLinking CXX shared library libdetection_msgs__rosidl_typesupport_cpp.so[0m
+[14.666s] [ 78%] [32m[1mLinking CXX shared library libdetection_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[14.703s] [ 78%] Built target detection_msgs__rosidl_typesupport_cpp
+[14.847s] [ 78%] Built target detection_msgs__rosidl_typesupport_fastrtps_c
+[14.901s] [ 78%] Built target detection_msgs__rosidl_typesupport_introspection_cpp
+[14.948s] [ 78%] Built target detection_msgs
+[14.994s] [ 80%] [34m[1mGenerating Python code for ROS interfaces[0m
+[17.739s] [ 80%] Built target detection_msgs__py
+[17.815s] [ 81%] [32mBuilding C object CMakeFiles/detection_msgs__rosidl_generator_py.dir/rosidl_generator_py/detection_msgs/msg/_bounding_box2_d_s.c.o[0m
+[17.823s] [ 85%] [32mBuilding C object CMakeFiles/detection_msgs__rosidl_generator_py.dir/rosidl_generator_py/detection_msgs/msg/_detection2_d_array_s.c.o[0m
+[17.825s] [ 85%] [32mBuilding C object CMakeFiles/detection_msgs__rosidl_generator_py.dir/rosidl_generator_py/detection_msgs/msg/_detection2_d_s.c.o[0m
+[17.837s] [ 87%] [32mBuilding C object CMakeFiles/detection_msgs__rosidl_generator_py.dir/rosidl_generator_py/detection_msgs/msg/_target_position_s.c.o[0m
+[18.293s] [ 89%] [32m[1mLinking C shared library rosidl_generator_py/detection_msgs/libdetection_msgs__rosidl_generator_py.so[0m
+[18.469s] [ 89%] Built target detection_msgs__rosidl_generator_py
+[18.543s] [ 90%] [32mBuilding C object CMakeFiles/detection_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/detection_msgs/_detection_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[18.559s] [ 94%] [32mBuilding C object CMakeFiles/detection_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/detection_msgs/_detection_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[18.564s] [ 94%] [32mBuilding C object CMakeFiles/detection_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/detection_msgs/_detection_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[18.837s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/detection_msgs/detection_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[18.953s] [ 98%] [32m[1mLinking C shared library rosidl_generator_py/detection_msgs/detection_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[18.969s] [100%] [32m[1mLinking C shared library rosidl_generator_py/detection_msgs/detection_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[19.011s] [100%] Built target detection_msgs__rosidl_typesupport_c__pyext
+[19.138s] [100%] Built target detection_msgs__rosidl_typesupport_fastrtps_c__pyext
+[19.182s] [100%] Built target detection_msgs__rosidl_typesupport_introspection_c__pyext
+[19.226s] Invoked command in '/home/gokcer/my_nodes_project/build/detection_msgs' returned '0': CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble /usr/bin/cmake --build /home/gokcer/my_nodes_project/build/detection_msgs -- -j8 -l8
+[19.228s] Invoking command in '/home/gokcer/my_nodes_project/build/detection_msgs': CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble /usr/bin/cmake --install /home/gokcer/my_nodes_project/build/detection_msgs
+[19.262s] -- Install configuration: ""
+[19.263s] -- Execute custom install script
+[19.264s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/ament_index/resource_index/rosidl_interfaces/detection_msgs
+[19.304s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/bounding_box2_d.h
+[19.337s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/bounding_box2_d__functions.h
+[19.371s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/bounding_box2_d__struct.h
+[19.405s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/bounding_box2_d__type_support.h
+[19.425s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/detection2_d__functions.h
+[19.452s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/detection2_d__struct.h
+[19.485s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/detection2_d__type_support.h
+[19.518s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/detection2_d_array__functions.h
+[19.553s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/detection2_d_array__struct.h
+[19.576s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/detection2_d_array__type_support.h
+[19.628s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/target_position__functions.h
+[19.675s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/target_position__struct.h
+[19.721s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/target_position__type_support.h
+[19.754s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detection2_d.h
+[19.792s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detection2_d_array.h
+[19.832s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/rosidl_generator_c__visibility_control.h
+[19.869s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/target_position.h
+[19.909s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/environment/library_path.sh
+[19.942s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/environment/library_path.dsv
+[19.984s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/bounding_box2_d__rosidl_typesupport_fastrtps_c.h
+[20.023s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/detection2_d__rosidl_typesupport_fastrtps_c.h
+[20.056s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/detection2_d_array__rosidl_typesupport_fastrtps_c.h
+[20.090s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/target_position__rosidl_typesupport_fastrtps_c.h
+[20.123s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[20.157s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/bounding_box2_d__rosidl_typesupport_introspection_c.h
+[20.209s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/detection2_d__rosidl_typesupport_introspection_c.h
+[20.252s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/detection2_d_array__rosidl_typesupport_introspection_c.h
+[20.291s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/target_position__rosidl_typesupport_introspection_c.h
+[20.327s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[20.364s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/bounding_box2_d.hpp
+[20.396s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/bounding_box2_d__builder.hpp
+[20.426s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/bounding_box2_d__struct.hpp
+[20.457s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/bounding_box2_d__traits.hpp
+[20.486s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/bounding_box2_d__type_support.hpp
+[20.517s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/detection2_d__builder.hpp
+[20.554s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/detection2_d__struct.hpp
+[20.585s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/detection2_d__traits.hpp
+[20.622s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/detection2_d__type_support.hpp
+[20.647s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/detection2_d_array__builder.hpp
+[20.671s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/detection2_d_array__struct.hpp
+[20.691s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/detection2_d_array__traits.hpp
+[20.713s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/detection2_d_array__type_support.hpp
+[20.752s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/target_position__builder.hpp
+[20.785s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/target_position__struct.hpp
+[20.907s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/target_position__traits.hpp
+[20.939s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/target_position__type_support.hpp
+[20.973s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detection2_d.hpp
+[21.014s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detection2_d_array.hpp
+[21.046s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[21.086s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/target_position.hpp
+[21.124s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/bounding_box2_d__rosidl_typesupport_fastrtps_cpp.hpp
+[21.162s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/detection2_d__rosidl_typesupport_fastrtps_cpp.hpp
+[21.194s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/detection2_d_array__rosidl_typesupport_fastrtps_cpp.hpp
+[21.228s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/target_position__rosidl_typesupport_fastrtps_cpp.hpp
+[21.262s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[21.302s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/bounding_box2_d__rosidl_typesupport_introspection_cpp.hpp
+[21.339s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/detection2_d__rosidl_typesupport_introspection_cpp.hpp
+[21.365s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/detection2_d_array__rosidl_typesupport_introspection_cpp.hpp
+[21.387s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/include/detection_msgs/detection_msgs/msg/detail/target_position__rosidl_typesupport_introspection_cpp.hpp
+[21.406s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/environment/pythonpath.sh
+[21.426s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/environment/pythonpath.dsv
+[21.448s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs-0.0.1-py3.10.egg-info/PKG-INFO
+[21.466s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs-0.0.1-py3.10.egg-info/SOURCES.txt
+[21.486s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs-0.0.1-py3.10.egg-info/dependency_links.txt
+[21.505s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs-0.0.1-py3.10.egg-info/top_level.txt
+[21.527s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/__init__.py
+[21.542s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/_detection_msgs_s.ep.rosidl_typesupport_c.c
+[21.559s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/_detection_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[21.577s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/_detection_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[21.599s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/detection_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[21.620s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/detection_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[21.638s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/detection_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[21.658s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/libdetection_msgs__rosidl_generator_py.so
+[21.677s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/msg/__init__.py
+[21.697s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/msg/_bounding_box2_d.py
+[21.721s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/msg/_bounding_box2_d_s.c
+[21.741s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/msg/_detection2_d.py
+[21.758s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/msg/_detection2_d_array.py
+[21.777s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/msg/_detection2_d_array_s.c
+[21.801s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/msg/_detection2_d_s.c
+[21.815s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/msg/_target_position.py
+[21.833s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/msg/_target_position_s.c
+[21.850s] -- Up-to-date symlink: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/detection_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[21.851s] -- Up-to-date symlink: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/detection_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[21.854s] -- Up-to-date symlink: /home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/detection_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[21.858s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/msg/BoundingBox2D.idl
+[21.873s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/msg/Detection2D.idl
+[21.896s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/msg/Detection2DArray.idl
+[21.925s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/msg/TargetPosition.idl
+[21.947s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/msg/BoundingBox2D.msg
+[21.971s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/msg/Detection2D.msg
+[22.009s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/msg/Detection2DArray.msg
+[22.044s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/msg/TargetPosition.msg
+[22.080s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/ament_index/resource_index/package_run_dependencies/detection_msgs
+[22.121s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/ament_index/resource_index/parent_prefix_path/detection_msgs
+[22.164s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/environment/ament_prefix_path.sh
+[22.194s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/environment/ament_prefix_path.dsv
+[22.225s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/environment/path.sh
+[22.256s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/environment/path.dsv
+[22.292s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/local_setup.bash
+[22.328s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/local_setup.sh
+[22.363s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/local_setup.zsh
+[22.392s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/local_setup.dsv
+[22.426s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/package.dsv
+[22.462s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/ament_index/resource_index/packages/detection_msgs
+[22.496s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/rosidl_cmake-extras.cmake
+[22.526s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[22.567s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[22.601s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[22.642s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[22.678s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[22.712s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[22.748s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/detection_msgsConfig.cmake
+[22.783s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/detection_msgsConfig-version.cmake
+[22.820s] -- Symlinking: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/package.xml
+[22.858s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/lib/libdetection_msgs__rosidl_generator_c.so
+[22.858s] -- Set runtime path of "/home/gokcer/my_nodes_project/install/detection_msgs/lib/libdetection_msgs__rosidl_generator_c.so" to ""
+[22.858s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/lib/libdetection_msgs__rosidl_typesupport_fastrtps_c.so
+[22.858s] -- Set runtime path of "/home/gokcer/my_nodes_project/install/detection_msgs/lib/libdetection_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+[22.861s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/lib/libdetection_msgs__rosidl_typesupport_introspection_c.so
+[22.864s] -- Set runtime path of "/home/gokcer/my_nodes_project/install/detection_msgs/lib/libdetection_msgs__rosidl_typesupport_introspection_c.so" to ""
+[22.870s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/lib/libdetection_msgs__rosidl_typesupport_c.so
+[22.870s] -- Set runtime path of "/home/gokcer/my_nodes_project/install/detection_msgs/lib/libdetection_msgs__rosidl_typesupport_c.so" to ""
+[22.871s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/lib/libdetection_msgs__rosidl_typesupport_fastrtps_cpp.so
+[22.871s] -- Set runtime path of "/home/gokcer/my_nodes_project/install/detection_msgs/lib/libdetection_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+[22.871s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/lib/libdetection_msgs__rosidl_typesupport_introspection_cpp.so
+[22.876s] -- Set runtime path of "/home/gokcer/my_nodes_project/install/detection_msgs/lib/libdetection_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[22.877s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/lib/libdetection_msgs__rosidl_typesupport_cpp.so
+[22.882s] -- Set runtime path of "/home/gokcer/my_nodes_project/install/detection_msgs/lib/libdetection_msgs__rosidl_typesupport_cpp.so" to ""
+[23.001s] Listing '/home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs'...
+[23.001s] Compiling '/home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/__init__.py'...
+[23.001s] Listing '/home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/msg'...
+[23.002s] Compiling '/home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/msg/__init__.py'...
+[23.002s] Compiling '/home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/msg/_bounding_box2_d.py'...
+[23.002s] Compiling '/home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/msg/_detection2_d.py'...
+[23.002s] Compiling '/home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/msg/_detection2_d_array.py'...
+[23.002s] Compiling '/home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages/detection_msgs/msg/_target_position.py'...
+[23.030s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/lib/libdetection_msgs__rosidl_generator_py.so
+[23.032s] -- Set runtime path of "/home/gokcer/my_nodes_project/install/detection_msgs/lib/libdetection_msgs__rosidl_generator_py.so" to ""
+[23.035s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/export_detection_msgs__rosidl_generator_cExport.cmake
+[23.035s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/export_detection_msgs__rosidl_generator_cExport-noconfig.cmake
+[23.036s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/export_detection_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[23.036s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/export_detection_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[23.036s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/detection_msgs__rosidl_typesupport_introspection_cExport.cmake
+[23.036s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/detection_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[23.037s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/detection_msgs__rosidl_typesupport_cExport.cmake
+[23.039s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/detection_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[23.039s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/export_detection_msgs__rosidl_generator_cppExport.cmake
+[23.046s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/export_detection_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[23.046s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/export_detection_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[23.046s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/detection_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[23.046s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/detection_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[23.047s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/detection_msgs__rosidl_typesupport_cppExport.cmake
+[23.047s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/detection_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[23.047s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/export_detection_msgs__rosidl_generator_pyExport.cmake
+[23.047s] -- Installing: /home/gokcer/my_nodes_project/install/detection_msgs/share/detection_msgs/cmake/export_detection_msgs__rosidl_generator_pyExport-noconfig.cmake
+[23.060s] Invoked command in '/home/gokcer/my_nodes_project/build/detection_msgs' returned '0': CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble /usr/bin/cmake --install /home/gokcer/my_nodes_project/build/detection_msgs

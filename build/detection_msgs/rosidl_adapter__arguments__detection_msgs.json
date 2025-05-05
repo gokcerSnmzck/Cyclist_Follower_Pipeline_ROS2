@@ -1,0 +1,9 @@
+{
+  "package_name": "detection_msgs",
+  "non_idl_tuples": [
+    "/home/gokcer/my_nodes_project/src/detection_msgs:msg/BoundingBox2D.msg",
+    "/home/gokcer/my_nodes_project/src/detection_msgs:msg/Detection2D.msg",
+    "/home/gokcer/my_nodes_project/src/detection_msgs:msg/Detection2DArray.msg",
+    "/home/gokcer/my_nodes_project/src/detection_msgs:msg/TargetPosition.msg"
+  ]
+}

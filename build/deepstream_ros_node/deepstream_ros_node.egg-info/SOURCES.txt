@@ -1,0 +1,13 @@
+package.xml
+setup.cfg
+setup.py
+deepstream_ros_node/__init__.py
+deepstream_ros_node/deepstream_ros_node.py
+deepstream_ros_node.egg-info/PKG-INFO
+deepstream_ros_node.egg-info/SOURCES.txt
+deepstream_ros_node.egg-info/dependency_links.txt
+deepstream_ros_node.egg-info/entry_points.txt
+deepstream_ros_node.egg-info/requires.txt
+deepstream_ros_node.egg-info/top_level.txt
+deepstream_ros_node.egg-info/zip-safe
+resource/deepstream_ros_node

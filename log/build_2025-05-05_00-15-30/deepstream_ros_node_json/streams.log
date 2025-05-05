@@ -1,0 +1,17 @@
+[1.943s] Invoking command in '/home/gokcer/my_nodes_project/build/deepstream_ros_node_json': PYTHONPATH=/home/gokcer/my_nodes_project/build/deepstream_ros_node_json/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/gokcer/my_nodes_project/build/deepstream_ros_node_json/build --no-deps symlink_data
+[2.465s] running develop
+[2.698s] running egg_info
+[2.698s] writing deepstream_ros_node_json.egg-info/PKG-INFO
+[2.698s] writing dependency_links to deepstream_ros_node_json.egg-info/dependency_links.txt
+[2.699s] writing entry points to deepstream_ros_node_json.egg-info/entry_points.txt
+[2.699s] writing requirements to deepstream_ros_node_json.egg-info/requires.txt
+[2.699s] writing top-level names to deepstream_ros_node_json.egg-info/top_level.txt
+[2.702s] reading manifest file 'deepstream_ros_node_json.egg-info/SOURCES.txt'
+[2.703s] writing manifest file 'deepstream_ros_node_json.egg-info/SOURCES.txt'
+[2.755s] running build_ext
+[2.756s] Creating /home/gokcer/my_nodes_project/install/deepstream_ros_node_json/lib/python3.10/site-packages/deepstream-ros-node-json.egg-link (link to .)
+[2.757s] Installing deepstream_ros_node_json script to /home/gokcer/my_nodes_project/install/deepstream_ros_node_json/lib/deepstream_ros_node_json
+[2.757s] 
+[2.757s] Installed /home/gokcer/my_nodes_project/build/deepstream_ros_node_json
+[2.757s] running symlink_data
+[2.799s] Invoked command in '/home/gokcer/my_nodes_project/build/deepstream_ros_node_json' returned '0': PYTHONPATH=/home/gokcer/my_nodes_project/build/deepstream_ros_node_json/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/gokcer/my_nodes_project/build/deepstream_ros_node_json/build --no-deps symlink_data

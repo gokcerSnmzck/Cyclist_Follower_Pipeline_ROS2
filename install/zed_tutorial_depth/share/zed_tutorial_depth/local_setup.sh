@@ -1,0 +1,1 @@
+/home/gokcer/my_nodes_project/build/zed_tutorial_depth/ament_cmake_environment_hooks/local_setup.sh

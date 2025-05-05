@@ -1,0 +1,1 @@
+/home/gokcer/my_nodes_project/src/zed-ros2-examples/tutorials/zed_robot_integration/launch/view_dual_zed.launch.py

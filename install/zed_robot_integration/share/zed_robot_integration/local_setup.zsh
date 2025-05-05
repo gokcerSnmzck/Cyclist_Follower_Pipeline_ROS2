@@ -1,0 +1,1 @@
+/home/gokcer/my_nodes_project/build/zed_robot_integration/ament_cmake_environment_hooks/local_setup.zsh

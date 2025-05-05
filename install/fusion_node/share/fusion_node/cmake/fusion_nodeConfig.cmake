@@ -1,0 +1,1 @@
+/home/gokcer/my_nodes_project/build/fusion_node/ament_cmake_core/fusion_nodeConfig.cmake

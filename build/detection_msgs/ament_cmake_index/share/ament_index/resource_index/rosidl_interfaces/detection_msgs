@@ -1,0 +1,8 @@
+msg/BoundingBox2D.idl
+msg/BoundingBox2D.msg
+msg/Detection2D.idl
+msg/Detection2D.msg
+msg/Detection2DArray.idl
+msg/Detection2DArray.msg
+msg/TargetPosition.idl
+msg/TargetPosition.msg

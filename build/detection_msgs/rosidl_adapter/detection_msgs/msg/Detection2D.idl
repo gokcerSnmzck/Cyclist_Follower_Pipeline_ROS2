@@ -1,0 +1,33 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from detection_msgs/msg/Detection2D.msg
+// generated code does not contain a copyright notice
+
+#include "detection_msgs/msg/BoundingBox2D.idl"
+
+module detection_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "Detection2D.msg")
+    struct Detection2D {
+      @verbatim (language="comment", text=
+        "Unique tracking ID (from DeepStream tracker)")
+      int32 tracking_id;
+
+      @verbatim (language="comment", text=
+        "Detected object class (e.g., person = 0)")
+      int32 class_id;
+
+      @verbatim (language="comment", text=
+        "Human-readable label, e.g., \"person\"")
+      string label;
+
+      @verbatim (language="comment", text=
+        "Confidence score (0.0 to 1.0)")
+      float confidence;
+
+      @verbatim (language="comment", text=
+        "2D bounding box in image coordinates")
+      detection_msgs::msg::BoundingBox2D bbox;
+    };
+  };
+};

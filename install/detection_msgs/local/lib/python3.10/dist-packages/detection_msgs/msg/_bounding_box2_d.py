@@ -1,0 +1,1 @@
+/home/gokcer/my_nodes_project/build/detection_msgs/rosidl_generator_py/detection_msgs/msg/_bounding_box2_d.py

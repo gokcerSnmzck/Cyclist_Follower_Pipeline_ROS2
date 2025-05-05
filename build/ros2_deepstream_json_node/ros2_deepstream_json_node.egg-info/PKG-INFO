@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: ros2-deepstream-json-node
+Version: 0.1.0
+Summary: ROS2 node for DeepStream that publishes detection metadata as JSON
+Home-page: UNKNOWN
+Maintainer: gokcer
+Maintainer-email: your_email@example.com
+License: MIT
+Platform: UNKNOWN
+
+UNKNOWN
+

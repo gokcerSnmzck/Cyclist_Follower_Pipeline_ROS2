@@ -1,0 +1,83 @@
+[0.049s] Invoking command in '/home/gokcer/my_nodes_project/build/zed_topic_benchmark_component': AMENT_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces:/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble LD_LIBRARY_PATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64 PYTHONPATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/gokcer/my_nodes_project/src/zed-ros2-examples/tools/zed_benchmark_component -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_component
+[0.287s] -- The C compiler identification is GNU 11.4.0
+[0.524s] -- The CXX compiler identification is GNU 11.4.0
+[0.552s] -- Detecting C compiler ABI info
+[0.853s] -- Detecting C compiler ABI info - done
+[0.888s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.888s] -- Detecting C compile features
+[0.889s] -- Detecting C compile features - done
+[0.903s] -- Detecting CXX compiler ABI info
+[1.232s] -- Detecting CXX compiler ABI info - done
+[1.276s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.277s] -- Detecting CXX compile features
+[1.277s] -- Detecting CXX compile features - done
+[1.290s] -- Found ament_cmake_auto: 1.3.11 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+[1.860s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[2.153s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[2.685s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[2.705s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[2.741s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[2.799s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.834s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.082s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[3.093s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[3.373s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[3.479s] -- Found FastRTPS: /opt/ros/humble/include  
+[3.643s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[3.682s] -- Looking for pthread.h
+[3.975s] -- Looking for pthread.h - found
+[3.977s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[4.316s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[4.324s] -- Found Threads: TRUE  
+[4.581s] -- Found rclcpp_components: 16.0.12 (/opt/ros/humble/share/rclcpp_components/cmake)
+[4.746s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[4.888s] -- Added test 'copyright' to check source files copyright and LICENSE
+[4.902s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[4.902s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/gokcer/my_nodes_project/src/zed-ros2-examples/tools/zed_benchmark_component/src/include>;$<BUILD_INTERFACE:/home/gokcer/my_nodes_project/src/zed-ros2-examples/tools/zed_benchmark_component/src/component/include>
+[4.902s] -- Configured cppcheck exclude dirs and/or files: 
+[4.915s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[4.916s] -- Configured cpplint exclude dirs and/or files: 
+[4.925s] -- Added test 'lint_cmake' to check CMake code style
+[4.938s] -- Added test 'uncrustify' to check C / C++ code style
+[4.942s] -- Configured uncrustify additional arguments: 
+[4.943s] -- Added test 'xmllint' to check XML markup files
+[4.954s] -- Added test 'clang_format' to check C / C++ code style
+[5.319s] -- Configuring done
+[5.389s] -- Generating done
+[5.421s] -- Build files have been written to: /home/gokcer/my_nodes_project/build/zed_topic_benchmark_component
+[5.518s] Invoked command in '/home/gokcer/my_nodes_project/build/zed_topic_benchmark_component' returned '0': AMENT_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces:/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble LD_LIBRARY_PATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64 PYTHONPATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/gokcer/my_nodes_project/src/zed-ros2-examples/tools/zed_benchmark_component -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_component
+[5.519s] Invoking command in '/home/gokcer/my_nodes_project/build/zed_topic_benchmark_component': AMENT_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces:/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble LD_LIBRARY_PATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64 PYTHONPATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/gokcer/my_nodes_project/build/zed_topic_benchmark_component -- -j8 -l8
+[5.752s] [ 33%] [32mBuilding CXX object CMakeFiles/zed_topic_benchmark_component.dir/src/component/src/topic_benchmark_component.cpp.o[0m
+[5.764s] [ 66%] [32mBuilding CXX object CMakeFiles/zed_topic_benchmark_component.dir/src/component/src/winavg.cpp.o[0m
+[24.217s] [100%] [32m[1mLinking CXX shared library libzed_topic_benchmark_component.so[0m
+[24.633s] [100%] Built target zed_topic_benchmark_component
+[24.648s] Invoked command in '/home/gokcer/my_nodes_project/build/zed_topic_benchmark_component' returned '0': AMENT_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces:/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble LD_LIBRARY_PATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64 PYTHONPATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/gokcer/my_nodes_project/build/zed_topic_benchmark_component -- -j8 -l8
+[24.650s] Invoking command in '/home/gokcer/my_nodes_project/build/zed_topic_benchmark_component': AMENT_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces:/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble LD_LIBRARY_PATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64 PYTHONPATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/gokcer/my_nodes_project/build/zed_topic_benchmark_component
+[24.659s] -- Install configuration: "Release"
+[24.660s] -- Execute custom install script
+[24.660s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/lib/libzed_topic_benchmark_component.so
+[24.671s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/include/zed_topic_benchmark_component/topic_benchmark_component.hpp
+[24.682s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/include/zed_topic_benchmark_component/winavg.hpp
+[24.692s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/include/zed_topic_benchmark_component/visibility_control.hpp
+[24.704s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/share/zed_topic_benchmark_component/environment/library_path.sh
+[24.715s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/share/zed_topic_benchmark_component/environment/library_path.dsv
+[24.727s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/share/ament_index/resource_index/package_run_dependencies/zed_topic_benchmark_component
+[24.739s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/share/ament_index/resource_index/parent_prefix_path/zed_topic_benchmark_component
+[24.749s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/share/zed_topic_benchmark_component/environment/ament_prefix_path.sh
+[24.761s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/share/zed_topic_benchmark_component/environment/ament_prefix_path.dsv
+[24.771s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/share/zed_topic_benchmark_component/environment/path.sh
+[24.781s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/share/zed_topic_benchmark_component/environment/path.dsv
+[24.792s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/share/zed_topic_benchmark_component/local_setup.bash
+[24.803s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/share/zed_topic_benchmark_component/local_setup.sh
+[24.814s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/share/zed_topic_benchmark_component/local_setup.zsh
+[24.826s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/share/zed_topic_benchmark_component/local_setup.dsv
+[24.837s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/share/zed_topic_benchmark_component/package.dsv
+[24.848s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/share/ament_index/resource_index/packages/zed_topic_benchmark_component
+[24.859s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/share/ament_index/resource_index/rclcpp_components/zed_topic_benchmark_component
+[24.870s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/share/zed_topic_benchmark_component/cmake/ament_cmake_export_include_directories-extras.cmake
+[24.881s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/share/zed_topic_benchmark_component/cmake/ament_cmake_export_libraries-extras.cmake
+[24.891s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/share/zed_topic_benchmark_component/cmake/ament_cmake_export_dependencies-extras.cmake
+[24.904s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/share/zed_topic_benchmark_component/cmake/zed_topic_benchmark_componentConfig.cmake
+[24.915s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/share/zed_topic_benchmark_component/cmake/zed_topic_benchmark_componentConfig-version.cmake
+[24.927s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_component/share/zed_topic_benchmark_component/package.xml
+[24.942s] Invoked command in '/home/gokcer/my_nodes_project/build/zed_topic_benchmark_component' returned '0': AMENT_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces:/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble LD_LIBRARY_PATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64 PYTHONPATH=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/gokcer/my_nodes_project/build/zed_topic_benchmark_component

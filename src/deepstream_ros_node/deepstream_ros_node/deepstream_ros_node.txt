@@ -1,0 +1,126 @@
+#!/usr/bin/env python3
+
+import rclpy
+from rclpy.node import Node
+
+import gi
+gi.require_version('Gst', '1.0')
+from gi.repository import Gst, GLib
+
+import pyds
+from std_msgs.msg import Header
+from detection_msgs.msg import Detection2D, Detection2DArray, BoundingBox2D
+
+class DeepStreamROSNode(Node):
+    def __init__(self):
+        super().__init__('deepstream_ros_node')
+        self.publisher = self.create_publisher(Detection2DArray, '/deepstream/detections', 10)
+        self.get_logger().info("Starting DeepStream ROS node...")
+
+        Gst.init(None)
+
+        path_to_yolo="/home/gokcer/DeepStream-Yolo/"
+
+        # Build pipeline equivalent to your deepstream_app_config.txt
+        # self.pipeline = Gst.parse_launch(
+        #     "filesrc location=/opt/nvidia/deepstream/deepstream/samples/streams/sample_1080p_h264.mp4 ! "
+        #     "qtdemux name=demux demux.video_0 ! h264parse ! nvv4l2decoder ! "
+        #     "videoconvert ! video/x-raw, format=NV12 ! "
+        #     "nvstreammux name=mux batch-size=1 width=1920 height=1080 ! "
+        #     f"nvinfer config-file-path={path_to_yolo}config_infer_primary_yolo11.txt ! "
+        #     f"nvtracker ll-config-file={path_to_yolo}config_tracker_NvDCF_perf.yml tracker-width=960 tracker-height=544 ! "
+        #     "nvdsosd ! fakesink"
+        # )
+
+        self.pipeline = Gst.parse_launch(
+            "filesrc location=/opt/nvidia/deepstream/deepstream/samples/streams/sample_1080p_h264.mp4 ! "
+            "qtdemux name=demux demux.video_0 ! h264parse ! nvv4l2decoder ! "
+            "nvvideoconvert ! video/x-raw(memory:NVMM), format=NV12 ! "
+            "nvstreammux name=mux batch-size=1 width=1920 height=1080 ! "
+            f"nvinfer config-file-path={path_to_yolo}config_infer_primary_yolo11.txt ! "
+            f"nvtracker ll-config-file={path_to_yolo}config_tracker_NvDCF_perf.yml tracker-width=960 tracker-height=544 ! "
+            "nvdsosd ! fakesink"
+        )
+
+        self.get_logger().info("Pipeline created.")
+
+        # Set up bus watcher
+        bus = self.pipeline.get_bus()
+        bus.add_signal_watch()
+        bus.connect("message", self.bus_call)
+
+        # Add probe to get metadata
+        sink_pad = self.pipeline.get_by_name("mux").get_static_pad("sink_0")
+        if not sink_pad:
+            self.get_logger().error("Failed to get sink pad.")
+            return
+        sink_pad.add_probe(Gst.PadProbeType.BUFFER, self.process_frame, 0)
+
+        self.pipeline.set_state(Gst.State.PLAYING)
+        self.get_logger().info("Pipeline running.")
+
+    def process_frame(self, pad, info, u_data):
+        gst_buffer = info.get_buffer()
+        if not gst_buffer:
+            return Gst.PadProbeReturn.OK
+
+        batch_meta = pyds.gst_buffer_get_nvds_batch_meta(hash(gst_buffer))
+        l_frame = batch_meta.frame_meta_list
+
+        while l_frame:
+            frame_meta = pyds.NvDsFrameMeta.cast(l_frame.data)
+            l_obj = frame_meta.obj_meta_list
+
+            msg = Detection2DArray()
+            msg.header = Header()
+            msg.header.stamp = self.get_clock().now().to_msg()
+            msg.header.frame_id = "deepstream_camera"
+
+            while l_obj:
+                obj_meta = pyds.NvDsObjectMeta.cast(l_obj.data)
+
+                det = Detection2D()
+                det.tracking_id = obj_meta.object_id
+                det.class_id = obj_meta.class_id
+                det.label = obj_meta.obj_label
+                det.confidence = obj_meta.confidence
+
+                bbox = BoundingBox2D()
+                bbox.x = float(obj_meta.rect_params.left)
+                bbox.y = float(obj_meta.rect_params.top)
+                bbox.width = float(obj_meta.rect_params.width)
+                bbox.height = float(obj_meta.rect_params.height)
+                det.bbox = bbox
+
+                msg.detections.append(det)
+                l_obj = l_obj.next
+
+            if msg.detections:
+                self.publisher.publish(msg)
+
+            l_frame = l_frame.next
+
+        return Gst.PadProbeReturn.OK
+
+    def bus_call(self, bus, message):
+        t = message.type
+        if t == Gst.MessageType.EOS:
+            self.get_logger().info("End of stream.")
+            self.pipeline.set_state(Gst.State.NULL)
+        elif t == Gst.MessageType.ERROR:
+            err, debug = message.parse_error()
+            self.get_logger().error(f"Error: {err} Debug: {debug}")
+            self.pipeline.set_state(Gst.State.NULL)
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = DeepStreamROSNode()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        node.pipeline.set_state(Gst.State.NULL)
+    node.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()

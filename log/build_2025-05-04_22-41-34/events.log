@@ -1,0 +1,27 @@
+[0.000000] (-) TimerEvent: {}
+[0.000640] (-) JobUnselected: {'identifier': 'deepstream_ros_node'}
+[0.000871] (-) JobUnselected: {'identifier': 'detection_msgs'}
+[0.000999] (-) JobUnselected: {'identifier': 'fusion_node'}
+[0.001113] (-) JobUnselected: {'identifier': 'ros2_deepstream_json_node'}
+[0.001150] (-) JobUnselected: {'identifier': 'rviz_plugin_zed_od'}
+[0.001167] (-) JobUnselected: {'identifier': 'zed_aruco_localization'}
+[0.001200] (-) JobUnselected: {'identifier': 'zed_components'}
+[0.001217] (-) JobUnselected: {'identifier': 'zed_depth_to_laserscan'}
+[0.001233] (-) JobUnselected: {'identifier': 'zed_display_rviz2'}
+[0.001248] (-) JobUnselected: {'identifier': 'zed_ipc'}
+[0.001264] (-) JobUnselected: {'identifier': 'zed_msgs'}
+[0.001280] (-) JobUnselected: {'identifier': 'zed_multi_camera'}
+[0.001295] (-) JobUnselected: {'identifier': 'zed_rgb_convert'}
+[0.001311] (-) JobUnselected: {'identifier': 'zed_robot_integration'}
+[0.001327] (-) JobUnselected: {'identifier': 'zed_ros2'}
+[0.001342] (-) JobUnselected: {'identifier': 'zed_topic_benchmark'}
+[0.001358] (-) JobUnselected: {'identifier': 'zed_topic_benchmark_component'}
+[0.001373] (-) JobUnselected: {'identifier': 'zed_topic_benchmark_interfaces'}
+[0.001389] (-) JobUnselected: {'identifier': 'zed_tutorial_depth'}
+[0.001405] (-) JobUnselected: {'identifier': 'zed_tutorial_pos_tracking'}
+[0.001420] (-) JobUnselected: {'identifier': 'zed_tutorial_video'}
+[0.001436] (-) JobUnselected: {'identifier': 'zed_wrapper'}
+[0.001464] (deepstream_ros_node_json) JobQueued: {'identifier': 'deepstream_ros_node_json', 'dependencies': OrderedDict([('detection_msgs', '/home/gokcer/my_nodes_project/install/detection_msgs')])}
+[0.001486] (deepstream_ros_node_json) JobStarted: {'identifier': 'deepstream_ros_node_json'}
+[0.009707] (deepstream_ros_node_json) JobEnded: {'identifier': 'deepstream_ros_node_json', 'rc': 1}
+[0.020399] (-) EventReactorShutdown: {}

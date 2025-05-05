@@ -1,0 +1,4 @@
+/home/gokcer/my_nodes_project/build/detection_msgs/rosidl_adapter/detection_msgs:msg/BoundingBox2D.idl
+/home/gokcer/my_nodes_project/build/detection_msgs/rosidl_adapter/detection_msgs:msg/Detection2D.idl
+/home/gokcer/my_nodes_project/build/detection_msgs/rosidl_adapter/detection_msgs:msg/Detection2DArray.idl
+/home/gokcer/my_nodes_project/build/detection_msgs/rosidl_adapter/detection_msgs:msg/TargetPosition.idl

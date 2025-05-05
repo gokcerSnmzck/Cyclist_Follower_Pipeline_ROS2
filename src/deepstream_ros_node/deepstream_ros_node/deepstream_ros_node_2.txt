@@ -1,0 +1,135 @@
+import rclpy
+from rclpy.node import Node
+
+import gi
+import sys
+
+gi.require_version('Gst', '1.0')
+gi.require_version('GstBase', '1.0')
+from gi.repository import Gst, GObject
+
+import pyds
+from std_msgs.msg import Header
+from detection_msgs.msg import Detection2D, Detection2DArray, BoundingBox2D
+
+
+class DeepStreamROSNode(Node):
+    def __init__(self):
+        super().__init__('deepstream_ros_node')
+        self.publisher = self.create_publisher(Detection2DArray, '/deepstream/detections', 10)
+        self.get_logger().info("Starting DeepStream ROS node with manual pipeline...")
+
+        Gst.init(None)
+
+        # Create elements manually
+        self.pipeline = Gst.Pipeline()
+
+        path_to_yolo="/home/gokcer/DeepStream-Yolo/"
+
+        source = Gst.ElementFactory.make("filesrc", "source")
+        source.set_property("location", "/opt/nvidia/deepstream/deepstream/samples/streams/sample_1080p_h264.mp4")
+
+        qtdemux = Gst.ElementFactory.make("qtdemux", "demux")
+        h264parse = Gst.ElementFactory.make("h264parse", "h264parse")
+        decoder = Gst.ElementFactory.make("nvv4l2decoder", "decoder")
+        converter = Gst.ElementFactory.make("nvvideoconvert", "converter")
+
+        capsfilter = Gst.ElementFactory.make("capsfilter", "capsfilter")
+        caps = Gst.Caps.from_string("video/x-raw(memory:NVMM), format=NV12")
+        capsfilter.set_property("caps", caps)
+
+        streammux = Gst.ElementFactory.make("nvstreammux", "streammux")
+        streammux.set_property("batch-size", 1)
+        streammux.set_property("width", 1920)
+        streammux.set_property("height", 1080)
+        streammux.set_property("live-source", 0)
+
+        pgie = Gst.ElementFactory.make("nvinfer", "primary-inference")
+        pgie.set_property("config-file-path", f"{path_to_yolo}config_infer_primary_yolo11.txt")
+
+        tracker = Gst.ElementFactory.make("nvtracker", "tracker")
+        tracker.set_property("ll-config-file", f"{path_to_yolo}config_tracker_NvDCF_perf.yml")
+        tracker.set_property("tracker-width", 960)
+        tracker.set_property("tracker-height", 544)
+
+        nvdsosd = Gst.ElementFactory.make("nvdsosd", "onscreendisplay")
+        sink = Gst.ElementFactory.make("fakesink", "fakesink")  # Or use nv3dsink/nveglglessink
+
+        for elem in [source, qtdemux, h264parse, decoder, converter, capsfilter, streammux, pgie, tracker, nvdsosd, sink]:
+            if not elem:
+                self.get_logger().error(f"Failed to create GStreamer element: {elem}")
+                return
+            self.pipeline.add(elem)
+
+        # Link static elements
+        source.link(qtdemux)
+        h264parse.link(decoder)
+        decoder.link(converter)
+        converter.link(capsfilter)
+        capsfilter.link(streammux)
+        pgie.link(tracker)
+        tracker.link(nvdsosd)
+        nvdsosd.link(sink)
+
+        # Handle dynamic pad for qtdemux
+        def on_pad_added(demux, pad):
+            sink_pad = h264parse.get_static_pad("sink")
+            if not sink_pad.is_linked():
+                pad.link(sink_pad)
+        qtdemux.connect("pad-added", on_pad_added)
+
+        # Link to mux.sink_0 manually
+        sinkpad = streammux.get_request_pad("sink_0")
+        srcpad = capsfilter.get_static_pad("src")
+        srcpad.link(sinkpad)
+
+        # Link mux to inference and rest of pipeline
+        streammux.link(pgie)
+
+        # Add metadata probe here if needed
+
+        self.pipeline.set_state(Gst.State.PLAYING)
+        self.get_logger().info("Pipeline set to PLAYING.")
+
+    def publish_detections(self, frame_meta):
+        msg = Detection2DArray()
+        msg.header = Header()
+        msg.header.stamp = self.get_clock().now().to_msg()
+        msg.header.frame_id = "deepstream_camera"
+
+        l_obj = frame_meta.obj_meta_list
+        while l_obj:
+            obj_meta = pyds.NvDsObjectMeta.cast(l_obj.data)
+
+            det = Detection2D()
+            det.tracking_id = obj_meta.object_id
+            det.class_id = obj_meta.class_id
+            det.label = obj_meta.obj_label
+            det.confidence = obj_meta.confidence
+
+            bbox = BoundingBox2D()
+            bbox.x = float(obj_meta.rect_params.left)
+            bbox.y = float(obj_meta.rect_params.top)
+            bbox.width = float(obj_meta.rect_params.width)
+            bbox.height = float(obj_meta.rect_params.height)
+            det.bbox = bbox
+
+            msg.detections.append(det)
+            l_obj = l_obj.next
+
+        self.publisher.publish(msg)
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = DeepStreamROSNode()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        node.pipeline.set_state(Gst.State.NULL)
+    node.destroy_node()
+    rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()

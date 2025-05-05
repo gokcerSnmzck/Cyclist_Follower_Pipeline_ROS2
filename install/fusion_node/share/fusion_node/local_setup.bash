@@ -1,0 +1,1 @@
+/home/gokcer/my_nodes_project/build/fusion_node/ament_cmake_environment_hooks/local_setup.bash

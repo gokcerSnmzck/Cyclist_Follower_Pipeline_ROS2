@@ -1,0 +1,3 @@
+[console_scripts]
+ros2_deepstream_json_node = ros2_deepstream_json_node.ros2_deepstream_json_node:main
+

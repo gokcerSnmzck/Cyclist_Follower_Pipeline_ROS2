@@ -1,0 +1,22 @@
+running develop
+running egg_info
+creating deepstream_ros_node.egg-info
+writing deepstream_ros_node.egg-info/PKG-INFO
+writing dependency_links to deepstream_ros_node.egg-info/dependency_links.txt
+writing entry points to deepstream_ros_node.egg-info/entry_points.txt
+writing requirements to deepstream_ros_node.egg-info/requires.txt
+writing top-level names to deepstream_ros_node.egg-info/top_level.txt
+writing manifest file 'deepstream_ros_node.egg-info/SOURCES.txt'
+reading manifest file 'deepstream_ros_node.egg-info/SOURCES.txt'
+writing manifest file 'deepstream_ros_node.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/gokcer/my_nodes_project/install/deepstream_ros_node/lib/python3.10/site-packages/deepstream-ros-node.egg-link (link to .)
+Installing deepstream_ros_node script to /home/gokcer/my_nodes_project/install/deepstream_ros_node/lib/deepstream_ros_node
+
+Installed /home/gokcer/my_nodes_project/build/deepstream_ros_node
+running symlink_data
+creating /home/gokcer/my_nodes_project/install/deepstream_ros_node/share/ament_index
+creating /home/gokcer/my_nodes_project/install/deepstream_ros_node/share/ament_index/resource_index
+creating /home/gokcer/my_nodes_project/install/deepstream_ros_node/share/ament_index/resource_index/packages
+symbolically linking /home/gokcer/my_nodes_project/build/deepstream_ros_node/resource/deepstream_ros_node -> /home/gokcer/my_nodes_project/install/deepstream_ros_node/share/ament_index/resource_index/packages
+symbolically linking /home/gokcer/my_nodes_project/build/deepstream_ros_node/package.xml -> /home/gokcer/my_nodes_project/install/deepstream_ros_node/share/deepstream_ros_node

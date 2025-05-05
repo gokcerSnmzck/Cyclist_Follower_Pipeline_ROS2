@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "detection_msgs__py",
+		"source" : "/home/gokcer/my_nodes_project/build/detection_msgs/detection_msgs__py"
+	}
+}

@@ -1,0 +1,24 @@
+[3.203s] Invoking command in '/home/gokcer/my_nodes_project/build/deepstream_ros_node': AMENT_PREFIX_PATH=/home/gokcer/my_nodes_project/install/detection_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/detection_msgs LD_LIBRARY_PATH=/home/gokcer/my_nodes_project/install/detection_msgs/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64 PYTHONPATH=/home/gokcer/my_nodes_project/build/deepstream_ros_node/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/gokcer/my_nodes_project/install/deepstream_ros_node/lib/python3.10/site-packages:/home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/gokcer/my_nodes_project/build/deepstream_ros_node/build --no-deps symlink_data
+[4.187s] running develop
+[4.732s] running egg_info
+[4.732s] creating deepstream_ros_node.egg-info
+[4.733s] writing deepstream_ros_node.egg-info/PKG-INFO
+[4.733s] writing dependency_links to deepstream_ros_node.egg-info/dependency_links.txt
+[4.734s] writing entry points to deepstream_ros_node.egg-info/entry_points.txt
+[4.734s] writing requirements to deepstream_ros_node.egg-info/requires.txt
+[4.734s] writing top-level names to deepstream_ros_node.egg-info/top_level.txt
+[4.734s] writing manifest file 'deepstream_ros_node.egg-info/SOURCES.txt'
+[4.739s] reading manifest file 'deepstream_ros_node.egg-info/SOURCES.txt'
+[4.739s] writing manifest file 'deepstream_ros_node.egg-info/SOURCES.txt'
+[4.859s] running build_ext
+[4.859s] Creating /home/gokcer/my_nodes_project/install/deepstream_ros_node/lib/python3.10/site-packages/deepstream-ros-node.egg-link (link to .)
+[4.864s] Installing deepstream_ros_node script to /home/gokcer/my_nodes_project/install/deepstream_ros_node/lib/deepstream_ros_node
+[4.864s] 
+[4.864s] Installed /home/gokcer/my_nodes_project/build/deepstream_ros_node
+[4.865s] running symlink_data
+[4.865s] creating /home/gokcer/my_nodes_project/install/deepstream_ros_node/share/ament_index
+[4.865s] creating /home/gokcer/my_nodes_project/install/deepstream_ros_node/share/ament_index/resource_index
+[4.865s] creating /home/gokcer/my_nodes_project/install/deepstream_ros_node/share/ament_index/resource_index/packages
+[4.865s] symbolically linking /home/gokcer/my_nodes_project/build/deepstream_ros_node/resource/deepstream_ros_node -> /home/gokcer/my_nodes_project/install/deepstream_ros_node/share/ament_index/resource_index/packages
+[4.869s] symbolically linking /home/gokcer/my_nodes_project/build/deepstream_ros_node/package.xml -> /home/gokcer/my_nodes_project/install/deepstream_ros_node/share/deepstream_ros_node
+[4.997s] Invoked command in '/home/gokcer/my_nodes_project/build/deepstream_ros_node' returned '0': AMENT_PREFIX_PATH=/home/gokcer/my_nodes_project/install/detection_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/detection_msgs LD_LIBRARY_PATH=/home/gokcer/my_nodes_project/install/detection_msgs/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64 PYTHONPATH=/home/gokcer/my_nodes_project/build/deepstream_ros_node/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/gokcer/my_nodes_project/install/deepstream_ros_node/lib/python3.10/site-packages:/home/gokcer/my_nodes_project/install/detection_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/gokcer/my_nodes_project/build/deepstream_ros_node/build --no-deps symlink_data

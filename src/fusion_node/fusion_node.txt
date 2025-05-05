@@ -1,0 +1,150 @@
+#!/usr/bin/env python3
+
+import rclpy
+from rclpy.node import Node
+
+from std_msgs.msg import Header
+from geometry_msgs.msg import Point
+from sensor_msgs.msg import CameraInfo
+
+from detection_msgs.msg import Detection2DArray, Detection2D  # DeepStream detections
+from detection_msgs.msg import TargetPosition                # Fused output
+from zed_msgs.msg import ObjectsStamped           # ZED SDK 3D detections
+
+import math
+
+
+class FusionNode(Node):
+    def __init__(self):
+        super().__init__('fusion_node')
+
+        # Camera intrinsics placeholders (should be updated from CameraInfo)
+        self.fx = 525.0
+        self.fy = 525.0
+        self.cx = 640.0 / 2
+        self.cy = 480.0 / 2
+
+        self.declare_parameter('camera_info_topic', '/zed2i/zed_node/left/camera_info')
+        self.create_subscription(CameraInfo, self.get_parameter('camera_info_topic').value, self.caminfo_callback, 10)
+
+        self.ds_sub = self.create_subscription(Detection2DArray, '/deepstream/detections', self.ds_callback, 10)
+        self.zed_sub = self.create_subscription(ObjectsStamped, '/zed2i/obj_det/objects', self.zed_callback, 10)
+
+        self.pub = self.create_publisher(TargetPosition, '/fused_target', 10)
+
+        self.last_ds_detections = []
+
+    def caminfo_callback(self, msg: CameraInfo):
+        self.fx = msg.k[0]
+        self.fy = msg.k[4]
+        self.cx = msg.k[2]
+        self.cy = msg.k[5]
+
+    def ds_callback(self, msg):
+        self.last_ds_detections = msg.detections
+
+    # def zed_callback(self, msg):
+    #     for zed_obj in msg.objects:
+    #         best_match = self.find_best_match(zed_obj)
+    #         if best_match:
+    #             fused_msg = TargetPosition()
+    #             fused_msg.header.stamp = self.get_clock().now().to_msg()
+    #             fused_msg.header.frame_id = msg.header.frame_id
+    #             fused_msg.id = best_match.tracking_id
+    #             fused_msg.class_id = best_match.class_id
+    #             fused_msg.confidence = best_match.confidence
+    #             fused_msg.label = best_match.label
+
+    #             # Convert float32[3] position array to geometry_msgs/Point
+    #             if len(zed_obj.position) == 3:
+    #                 fused_msg.position = Point(
+    #                     x=zed_obj.position[0],
+    #                     y=zed_obj.position[1],
+    #                     z=zed_obj.position[2]
+    #                 )
+
+    #             self.publisher_.publish(fused_msg)
+
+    def zed_callback(self, msg):
+        for zed_obj in msg.objects:
+            # Only process objects with position data
+            if len(zed_obj.position) < 3:
+                continue
+
+            best_match = self.find_best_match(zed_obj)
+            if not best_match:
+                continue
+
+            fused_msg = TargetPosition()
+            fused_msg.header.stamp = self.get_clock().now().to_msg()
+            fused_msg.header.frame_id = msg.header.frame_id
+
+            fused_msg.id = best_match.tracking_id
+            fused_msg.class_id = best_match.class_id
+            fused_msg.confidence = best_match.confidence
+            fused_msg.label = best_match.label
+
+            # Convert float32[3] to geometry_msgs/Point
+            fused_msg.position = Point(
+                x=float(zed_obj.position[0]),
+                y=float(zed_obj.position[1]),
+                z=float(zed_obj.position[2])
+            )
+
+            self.publisher_.publish(fused_msg)
+
+
+    def project_3d_to_2d(self, x, y, z):
+        if z == 0:
+            return None
+        u = self.fx * x / z + self.cx
+        v = self.fy * y / z + self.cy
+        return (int(u), int(v))
+
+    def iou(self, boxA, boxB):
+        xA = max(boxA[0], boxB[0])
+        yA = max(boxA[1], boxB[1])
+        xB = min(boxA[0] + boxA[2], boxB[0] + boxB[2])
+        yB = min(boxA[1] + boxA[3], boxB[1] + boxB[3])
+
+        interArea = max(0, xB - xA) * max(0, yB - yA)
+        boxAArea = boxA[2] * boxA[3]
+        boxBArea = boxB[2] * boxB[3]
+
+        if boxAArea + boxBArea - interArea == 0:
+            return 0.0
+        return interArea / float(boxAArea + boxBArea - interArea)
+
+    def find_best_match(self, zed_obj):
+        x, y, z = zed_obj.position.x, zed_obj.position.y, zed_obj.position.z
+        proj = self.project_3d_to_2d(x, y, z)
+        if not proj:
+            return None
+
+        best_match = None
+        min_dist = float('inf')
+
+        for det in self.last_ds_detections:
+            if det.class_id != zed_obj.label_id:
+                continue
+
+            bbox = (det.bbox.x, det.bbox.y, det.bbox.width, det.bbox.height)
+            center = (det.bbox.x + det.bbox.width / 2, det.bbox.y + det.bbox.height / 2)
+            dist = math.hypot(proj[0] - center[0], proj[1] - center[1])
+
+            if dist < 50.0 and dist < min_dist:  # You can tune this threshold
+                best_match = det
+                min_dist = dist
+
+        return best_match
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = FusionNode()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()

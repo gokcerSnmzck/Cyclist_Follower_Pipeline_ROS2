@@ -1,0 +1,1 @@
+/home/gokcer/my_nodes_project/src/ros2_deepstream_json_node/setup.py

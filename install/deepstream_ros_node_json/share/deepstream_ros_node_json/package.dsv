@@ -1,0 +1,9 @@
+source;share/deepstream_ros_node_json/hook/pythonpath.ps1
+source;share/deepstream_ros_node_json/hook/pythonpath.dsv
+source;share/deepstream_ros_node_json/hook/pythonpath.sh
+source;share/deepstream_ros_node_json/hook/ament_prefix_path.ps1
+source;share/deepstream_ros_node_json/hook/ament_prefix_path.dsv
+source;share/deepstream_ros_node_json/hook/ament_prefix_path.sh
+source;../../build/deepstream_ros_node_json/share/deepstream_ros_node_json/hook/pythonpath_develop.ps1
+source;../../build/deepstream_ros_node_json/share/deepstream_ros_node_json/hook/pythonpath_develop.dsv
+source;../../build/deepstream_ros_node_json/share/deepstream_ros_node_json/hook/pythonpath_develop.sh

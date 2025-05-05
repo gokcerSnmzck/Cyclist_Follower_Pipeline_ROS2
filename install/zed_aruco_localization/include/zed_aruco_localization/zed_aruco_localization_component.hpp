@@ -1,0 +1,1 @@
+/home/gokcer/my_nodes_project/src/zed-ros2-examples/examples/zed_aruco_localization/src/component/include/zed_aruco_localization_component.hpp

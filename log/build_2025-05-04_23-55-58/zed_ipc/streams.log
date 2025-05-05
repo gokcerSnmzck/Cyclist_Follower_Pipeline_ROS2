@@ -1,0 +1,85 @@
+[0.041s] Invoking command in '/home/gokcer/my_nodes_project/build/zed_ipc': AMENT_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_multi_camera:/home/gokcer/my_nodes_project/install/zed_wrapper:/home/gokcer/my_nodes_project/install/zed_components:/home/gokcer/my_nodes_project/install/zed_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_multi_camera:/home/gokcer/my_nodes_project/install/zed_wrapper:/home/gokcer/my_nodes_project/install/zed_components:/home/gokcer/my_nodes_project/install/zed_msgs:/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble LD_LIBRARY_PATH=/home/gokcer/my_nodes_project/install/zed_components/lib:/home/gokcer/my_nodes_project/install/zed_msgs/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64 PYTHONPATH=/home/gokcer/my_nodes_project/install/zed_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/gokcer/my_nodes_project/src/zed-ros2-examples/tutorials/zed_ipc -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/gokcer/my_nodes_project/install/zed_ipc
+[0.249s] -- The C compiler identification is GNU 11.4.0
+[0.326s] -- The CXX compiler identification is GNU 11.4.0
+[0.338s] -- Detecting C compiler ABI info
+[0.967s] -- Detecting C compiler ABI info - done
+[0.982s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.983s] -- Detecting C compile features
+[0.983s] -- Detecting C compile features - done
+[0.989s] -- Detecting CXX compiler ABI info
+[1.189s] -- Detecting CXX compiler ABI info - done
+[1.209s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.209s] -- Detecting CXX compile features
+[1.210s] -- Detecting CXX compile features - done
+[1.215s] -- Found ament_cmake_auto: 1.3.11 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+[1.521s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.640s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.916s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.927s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.945s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.971s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.004s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.067s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[2.071s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[2.186s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[2.223s] -- Found FastRTPS: /opt/ros/humble/include  
+[2.277s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.290s] -- Looking for pthread.h
+[2.388s] -- Looking for pthread.h - found
+[2.389s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[2.495s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[2.497s] -- Found Threads: TRUE  
+[2.739s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.858s] -- Added test 'copyright' to check source files copyright and LICENSE
+[2.862s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.864s] -- Configured cppcheck include dirs: /home/gokcer/my_nodes_project/src/zed-ros2-examples/tutorials/zed_ipc/src/include;/home/gokcer/my_nodes_project/src/zed-ros2-examples/tutorials/zed_ipc/src/component/include;/home/gokcer/my_nodes_project/src/zed-ros2-examples/tutorials/zed_ipc/src/components/include
+[2.864s] -- Configured cppcheck exclude dirs and/or files: 
+[2.865s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[2.866s] -- Configured cpplint exclude dirs and/or files: 
+[2.867s] -- Added test 'flake8' to check Python code syntax and style conventions
+[2.868s] -- Added test 'lint_cmake' to check CMake code style
+[2.869s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[2.872s] -- Added test 'uncrustify' to check C / C++ code style
+[2.872s] -- Configured uncrustify additional arguments: 
+[2.873s] -- Added test 'xmllint' to check XML markup files
+[2.876s] -- Added test 'clang_format' to check C / C++ code style
+[2.883s] -- Configuring done
+[2.906s] -- Generating done
+[2.914s] -- Build files have been written to: /home/gokcer/my_nodes_project/build/zed_ipc
+[2.936s] Invoked command in '/home/gokcer/my_nodes_project/build/zed_ipc' returned '0': AMENT_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_multi_camera:/home/gokcer/my_nodes_project/install/zed_wrapper:/home/gokcer/my_nodes_project/install/zed_components:/home/gokcer/my_nodes_project/install/zed_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_multi_camera:/home/gokcer/my_nodes_project/install/zed_wrapper:/home/gokcer/my_nodes_project/install/zed_components:/home/gokcer/my_nodes_project/install/zed_msgs:/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble LD_LIBRARY_PATH=/home/gokcer/my_nodes_project/install/zed_components/lib:/home/gokcer/my_nodes_project/install/zed_msgs/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64 PYTHONPATH=/home/gokcer/my_nodes_project/install/zed_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/gokcer/my_nodes_project/src/zed-ros2-examples/tutorials/zed_ipc -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/gokcer/my_nodes_project/install/zed_ipc
+[2.938s] Invoking command in '/home/gokcer/my_nodes_project/build/zed_ipc': AMENT_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_multi_camera:/home/gokcer/my_nodes_project/install/zed_wrapper:/home/gokcer/my_nodes_project/install/zed_components:/home/gokcer/my_nodes_project/install/zed_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_multi_camera:/home/gokcer/my_nodes_project/install/zed_wrapper:/home/gokcer/my_nodes_project/install/zed_components:/home/gokcer/my_nodes_project/install/zed_msgs:/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble LD_LIBRARY_PATH=/home/gokcer/my_nodes_project/install/zed_components/lib:/home/gokcer/my_nodes_project/install/zed_msgs/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64 PYTHONPATH=/home/gokcer/my_nodes_project/install/zed_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/gokcer/my_nodes_project/build/zed_ipc -- -j8 -l8
+[3.008s] [ 33%] [32mBuilding CXX object CMakeFiles/pointcloud_component.dir/src/components/src/pointcloud_component.cpp.o[0m
+[3.013s] [ 66%] [32mBuilding CXX object CMakeFiles/pointcloud_component.dir/src/components/src/winavg.cpp.o[0m
+[16.266s] [100%] [32m[1mLinking CXX shared library libpointcloud_component.so[0m
+[16.454s] [100%] Built target pointcloud_component
+[16.467s] Invoked command in '/home/gokcer/my_nodes_project/build/zed_ipc' returned '0': AMENT_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_multi_camera:/home/gokcer/my_nodes_project/install/zed_wrapper:/home/gokcer/my_nodes_project/install/zed_components:/home/gokcer/my_nodes_project/install/zed_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_multi_camera:/home/gokcer/my_nodes_project/install/zed_wrapper:/home/gokcer/my_nodes_project/install/zed_components:/home/gokcer/my_nodes_project/install/zed_msgs:/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble LD_LIBRARY_PATH=/home/gokcer/my_nodes_project/install/zed_components/lib:/home/gokcer/my_nodes_project/install/zed_msgs/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64 PYTHONPATH=/home/gokcer/my_nodes_project/install/zed_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/gokcer/my_nodes_project/build/zed_ipc -- -j8 -l8
+[16.470s] Invoking command in '/home/gokcer/my_nodes_project/build/zed_ipc': AMENT_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_multi_camera:/home/gokcer/my_nodes_project/install/zed_wrapper:/home/gokcer/my_nodes_project/install/zed_components:/home/gokcer/my_nodes_project/install/zed_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_multi_camera:/home/gokcer/my_nodes_project/install/zed_wrapper:/home/gokcer/my_nodes_project/install/zed_components:/home/gokcer/my_nodes_project/install/zed_msgs:/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble LD_LIBRARY_PATH=/home/gokcer/my_nodes_project/install/zed_components/lib:/home/gokcer/my_nodes_project/install/zed_msgs/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64 PYTHONPATH=/home/gokcer/my_nodes_project/install/zed_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/gokcer/my_nodes_project/build/zed_ipc
+[16.478s] -- Install configuration: "Release"
+[16.479s] -- Execute custom install script
+[16.479s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/lib/libpointcloud_component.so
+[16.490s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/include/zed_ipc//ipc_visibility_control.hpp
+[16.499s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/include/zed_ipc//pointcloud_component.hpp
+[16.511s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/include/zed_ipc//winavg.hpp
+[16.522s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/share/zed_ipc/launch/zed_ipc.launch.py
+[16.533s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/share/zed_ipc/environment/library_path.sh
+[16.544s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/share/zed_ipc/environment/library_path.dsv
+[16.556s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/share/ament_index/resource_index/package_run_dependencies/zed_ipc
+[16.567s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/share/ament_index/resource_index/parent_prefix_path/zed_ipc
+[16.578s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/share/zed_ipc/environment/ament_prefix_path.sh
+[16.590s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/share/zed_ipc/environment/ament_prefix_path.dsv
+[16.601s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/share/zed_ipc/environment/path.sh
+[16.613s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/share/zed_ipc/environment/path.dsv
+[16.624s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/share/zed_ipc/local_setup.bash
+[16.635s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/share/zed_ipc/local_setup.sh
+[16.647s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/share/zed_ipc/local_setup.zsh
+[16.659s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/share/zed_ipc/local_setup.dsv
+[16.670s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/share/zed_ipc/package.dsv
+[16.682s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/share/ament_index/resource_index/packages/zed_ipc
+[16.693s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/share/ament_index/resource_index/rclcpp_components/zed_ipc
+[16.704s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/share/zed_ipc/cmake/ament_cmake_export_include_directories-extras.cmake
+[16.716s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/share/zed_ipc/cmake/ament_cmake_export_libraries-extras.cmake
+[16.728s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/share/zed_ipc/cmake/ament_cmake_export_dependencies-extras.cmake
+[16.740s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/share/zed_ipc/cmake/zed_ipcConfig.cmake
+[16.750s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/share/zed_ipc/cmake/zed_ipcConfig-version.cmake
+[16.762s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_ipc/share/zed_ipc/package.xml
+[16.776s] Invoked command in '/home/gokcer/my_nodes_project/build/zed_ipc' returned '0': AMENT_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_multi_camera:/home/gokcer/my_nodes_project/install/zed_wrapper:/home/gokcer/my_nodes_project/install/zed_components:/home/gokcer/my_nodes_project/install/zed_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/zed_multi_camera:/home/gokcer/my_nodes_project/install/zed_wrapper:/home/gokcer/my_nodes_project/install/zed_components:/home/gokcer/my_nodes_project/install/zed_msgs:/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble LD_LIBRARY_PATH=/home/gokcer/my_nodes_project/install/zed_components/lib:/home/gokcer/my_nodes_project/install/zed_msgs/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/tensorrt-8/lib:/usr/local/cuda-12.2/lib64 PYTHONPATH=/home/gokcer/my_nodes_project/install/zed_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/gokcer/my_nodes_project/build/zed_ipc

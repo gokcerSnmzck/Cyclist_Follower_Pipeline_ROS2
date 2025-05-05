@@ -1,0 +1,1 @@
+/home/gokcer/my_nodes_project/build/zed_msgs/rosidl_generator_cpp/zed_msgs/srv/detail/set_roi__struct.hpp

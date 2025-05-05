@@ -1,0 +1,203 @@
+[0.056s] Invoking command in '/home/gokcer/my_nodes_project/build/zed_topic_benchmark_interfaces': CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble /usr/bin/cmake /home/gokcer/my_nodes_project/src/zed-ros2-examples/tools/zed_benchmark_interfaces -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces
+[2.334s] -- The C compiler identification is GNU 11.4.0
+[3.187s] -- The CXX compiler identification is GNU 11.4.0
+[3.200s] -- Detecting C compiler ABI info
+[3.384s] -- Detecting C compiler ABI info - done
+[3.398s] -- Check for working C compiler: /usr/bin/cc - skipped
+[3.399s] -- Detecting C compile features
+[3.425s] -- Detecting C compile features - done
+[3.439s] -- Detecting CXX compiler ABI info
+[3.604s] -- Detecting CXX compiler ABI info - done
+[3.622s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[3.622s] -- Detecting CXX compile features
+[3.623s] -- Detecting CXX compile features - done
+[3.668s] -- Found ament_cmake_auto: 1.3.11 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+[4.067s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[4.249s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[4.848s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[4.854s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[4.901s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[4.966s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[4.986s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[5.120s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[5.765s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[6.375s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[6.637s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[6.672s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[6.678s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[6.794s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[6.794s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[6.794s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[6.794s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[6.824s] -- Found PythonExtra: .so  
+[7.107s] -- Added test 'copyright' to check source files copyright and LICENSE
+[7.110s] -- Added test 'lint_cmake' to check CMake code style
+[7.112s] -- Added test 'xmllint' to check XML markup files
+[7.130s] -- Configuring done
+[7.178s] -- Generating done
+[7.190s] -- Build files have been written to: /home/gokcer/my_nodes_project/build/zed_topic_benchmark_interfaces
+[7.201s] Invoked command in '/home/gokcer/my_nodes_project/build/zed_topic_benchmark_interfaces' returned '0': CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble /usr/bin/cmake /home/gokcer/my_nodes_project/src/zed-ros2-examples/tools/zed_benchmark_interfaces -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces
+[7.203s] Invoking command in '/home/gokcer/my_nodes_project/build/zed_topic_benchmark_interfaces': CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble /usr/bin/cmake --build /home/gokcer/my_nodes_project/build/zed_topic_benchmark_interfaces -- -j8 -l8
+[7.265s] [  3%] [34m[1mGenerating C code for ROS interfaces[0m
+[7.279s] [  6%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[7.295s] [  6%] Built target ament_cmake_python_symlink_zed_topic_benchmark_interfaces
+[7.870s] running egg_info
+[7.872s] creating zed_topic_benchmark_interfaces.egg-info
+[7.872s] writing zed_topic_benchmark_interfaces.egg-info/PKG-INFO
+[7.872s] writing dependency_links to zed_topic_benchmark_interfaces.egg-info/dependency_links.txt
+[7.872s] writing top-level names to zed_topic_benchmark_interfaces.egg-info/top_level.txt
+[7.872s] writing manifest file 'zed_topic_benchmark_interfaces.egg-info/SOURCES.txt'
+[7.879s] reading manifest file 'zed_topic_benchmark_interfaces.egg-info/SOURCES.txt'
+[7.880s] writing manifest file 'zed_topic_benchmark_interfaces.egg-info/SOURCES.txt'
+[7.939s] [  6%] Built target ament_cmake_python_build_zed_topic_benchmark_interfaces_egg
+[8.184s] [  6%] Built target zed_topic_benchmark_interfaces__cpp
+[8.205s] [  9%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[8.205s] [ 12%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[8.211s] [ 16%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[8.307s] [ 19%] [32mBuilding C object CMakeFiles/zed_topic_benchmark_interfaces__rosidl_generator_c.dir/rosidl_generator_c/zed_topic_benchmark_interfaces/msg/detail/benchmark_stats_stamped__functions.c.o[0m
+[8.810s] [ 22%] [32m[1mLinking C shared library libzed_topic_benchmark_interfaces__rosidl_generator_c.so[0m
+[8.895s] [ 25%] [32mBuilding CXX object CMakeFiles/zed_topic_benchmark_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/zed_topic_benchmark_interfaces/msg/benchmark_stats_stamped__type_support.cpp.o[0m
+[8.991s] [ 25%] Built target zed_topic_benchmark_interfaces__rosidl_generator_c
+[9.026s] [ 29%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[9.031s] [ 32%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[9.045s] [ 35%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[9.049s] [ 38%] [32mBuilding CXX object CMakeFiles/zed_topic_benchmark_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/zed_topic_benchmark_interfaces/msg/detail/benchmark_stats_stamped__type_support.cpp.o[0m
+[9.188s] [ 41%] [32mBuilding CXX object CMakeFiles/zed_topic_benchmark_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/zed_topic_benchmark_interfaces/msg/detail/dds_fastrtps/benchmark_stats_stamped__type_support.cpp.o[0m
+[10.008s] [ 45%] [32m[1mLinking CXX shared library libzed_topic_benchmark_interfaces__rosidl_typesupport_cpp.so[0m
+[10.037s] [ 48%] [32mBuilding CXX object CMakeFiles/zed_topic_benchmark_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/zed_topic_benchmark_interfaces/msg/detail/benchmark_stats_stamped__type_support_c.cpp.o[0m
+[10.225s] [ 48%] Built target zed_topic_benchmark_interfaces__rosidl_typesupport_cpp
+[10.372s] [ 51%] [32mBuilding C object CMakeFiles/zed_topic_benchmark_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/zed_topic_benchmark_interfaces/msg/detail/benchmark_stats_stamped__type_support.c.o[0m
+[10.708s] [ 54%] [32mBuilding CXX object CMakeFiles/zed_topic_benchmark_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/zed_topic_benchmark_interfaces/msg/benchmark_stats_stamped__type_support.cpp.o[0m
+[10.752s] [ 58%] [32m[1mLinking C shared library libzed_topic_benchmark_interfaces__rosidl_typesupport_introspection_c.so[0m
+[10.898s] [ 61%] [32m[1mLinking CXX shared library libzed_topic_benchmark_interfaces__rosidl_typesupport_c.so[0m
+[10.921s] [ 61%] Built target zed_topic_benchmark_interfaces__rosidl_typesupport_introspection_c
+[11.104s] [ 61%] Built target zed_topic_benchmark_interfaces__rosidl_typesupport_c
+[11.400s] [ 64%] [32m[1mLinking CXX shared library libzed_topic_benchmark_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[11.410s] [ 67%] [32m[1mLinking CXX shared library libzed_topic_benchmark_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[11.420s] [ 70%] [32m[1mLinking CXX shared library libzed_topic_benchmark_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[11.655s] [ 70%] Built target zed_topic_benchmark_interfaces__rosidl_typesupport_fastrtps_c
+[11.839s] [ 70%] Built target zed_topic_benchmark_interfaces__rosidl_typesupport_introspection_cpp
+[11.952s] [ 70%] Built target zed_topic_benchmark_interfaces__rosidl_typesupport_fastrtps_cpp
+[12.051s] [ 70%] Built target zed_topic_benchmark_interfaces
+[12.135s] [ 74%] [34m[1mGenerating Python code for ROS interfaces[0m
+[14.398s] [ 74%] Built target zed_topic_benchmark_interfaces__py
+[14.441s] [ 77%] [32mBuilding C object CMakeFiles/zed_topic_benchmark_interfaces__rosidl_generator_py.dir/rosidl_generator_py/zed_topic_benchmark_interfaces/msg/_benchmark_stats_stamped_s.c.o[0m
+[15.513s] [ 80%] [32m[1mLinking C shared library rosidl_generator_py/zed_topic_benchmark_interfaces/libzed_topic_benchmark_interfaces__rosidl_generator_py.so[0m
+[15.702s] [ 80%] Built target zed_topic_benchmark_interfaces__rosidl_generator_py
+[15.807s] [ 83%] [32mBuilding C object CMakeFiles/zed_topic_benchmark_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/zed_topic_benchmark_interfaces/_zed_topic_benchmark_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[15.852s] [ 87%] [32mBuilding C object CMakeFiles/zed_topic_benchmark_interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/zed_topic_benchmark_interfaces/_zed_topic_benchmark_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[15.852s] [ 90%] [32mBuilding C object CMakeFiles/zed_topic_benchmark_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/zed_topic_benchmark_interfaces/_zed_topic_benchmark_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[16.135s] [ 93%] [32m[1mLinking C shared library rosidl_generator_py/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[16.281s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[16.294s] [ 96%] Built target zed_topic_benchmark_interfaces__rosidl_typesupport_introspection_c__pyext
+[16.341s] [100%] [32m[1mLinking C shared library rosidl_generator_py/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[16.439s] [100%] Built target zed_topic_benchmark_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[16.499s] [100%] Built target zed_topic_benchmark_interfaces__rosidl_typesupport_c__pyext
+[16.546s] Invoked command in '/home/gokcer/my_nodes_project/build/zed_topic_benchmark_interfaces' returned '0': CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble /usr/bin/cmake --build /home/gokcer/my_nodes_project/build/zed_topic_benchmark_interfaces -- -j8 -l8
+[16.570s] Invoking command in '/home/gokcer/my_nodes_project/build/zed_topic_benchmark_interfaces': CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble /usr/bin/cmake --install /home/gokcer/my_nodes_project/build/zed_topic_benchmark_interfaces
+[16.603s] -- Install configuration: ""
+[16.605s] -- Execute custom install script
+[16.609s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/ament_index/resource_index/rosidl_interfaces/zed_topic_benchmark_interfaces
+[16.640s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/include/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces/msg/benchmark_stats_stamped.h
+[16.684s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/include/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces/msg/detail/benchmark_stats_stamped__functions.h
+[16.707s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/include/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces/msg/detail/benchmark_stats_stamped__struct.h
+[16.744s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/include/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces/msg/detail/benchmark_stats_stamped__type_support.h
+[16.774s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/include/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces/msg/rosidl_generator_c__visibility_control.h
+[16.809s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/environment/library_path.sh
+[16.832s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/environment/library_path.dsv
+[16.870s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/include/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces/msg/detail/benchmark_stats_stamped__rosidl_typesupport_fastrtps_c.h
+[16.903s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/include/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[16.931s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/include/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces/msg/benchmark_stats_stamped.hpp
+[16.970s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/include/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces/msg/detail/benchmark_stats_stamped__builder.hpp
+[17.009s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/include/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces/msg/detail/benchmark_stats_stamped__struct.hpp
+[17.041s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/include/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces/msg/detail/benchmark_stats_stamped__traits.hpp
+[17.070s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/include/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces/msg/detail/benchmark_stats_stamped__type_support.hpp
+[17.100s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/include/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[17.139s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/include/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces/msg/detail/benchmark_stats_stamped__rosidl_typesupport_fastrtps_cpp.hpp
+[17.161s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/include/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[17.184s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/include/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces/msg/detail/benchmark_stats_stamped__rosidl_typesupport_introspection_c.h
+[17.202s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/include/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[17.220s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/include/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces/msg/detail/benchmark_stats_stamped__rosidl_typesupport_introspection_cpp.hpp
+[17.257s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/environment/pythonpath.sh
+[17.285s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/environment/pythonpath.dsv
+[17.301s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces-5.0.0-py3.10.egg-info/PKG-INFO
+[17.332s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces-5.0.0-py3.10.egg-info/SOURCES.txt
+[17.363s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces-5.0.0-py3.10.egg-info/dependency_links.txt
+[17.397s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces-5.0.0-py3.10.egg-info/top_level.txt
+[17.443s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces/__init__.py
+[17.476s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces/_zed_topic_benchmark_interfaces_s.ep.rosidl_typesupport_c.c
+[17.517s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces/_zed_topic_benchmark_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[17.553s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces/_zed_topic_benchmark_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[17.595s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces/libzed_topic_benchmark_interfaces__rosidl_generator_py.so
+[17.630s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces/msg/__init__.py
+[17.672s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces/msg/_benchmark_stats_stamped.py
+[17.709s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces/msg/_benchmark_stats_stamped_s.c
+[17.744s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[17.791s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[17.825s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[17.865s] -- Up-to-date symlink: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[17.865s] -- Up-to-date symlink: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[17.865s] -- Up-to-date symlink: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces/zed_topic_benchmark_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[17.867s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/msg/BenchmarkStatsStamped.idl
+[17.915s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/msg/BenchmarkStatsStamped.msg
+[17.954s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/ament_index/resource_index/package_run_dependencies/zed_topic_benchmark_interfaces
+[18.006s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/ament_index/resource_index/parent_prefix_path/zed_topic_benchmark_interfaces
+[18.055s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/environment/ament_prefix_path.sh
+[18.096s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/environment/ament_prefix_path.dsv
+[18.132s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/environment/path.sh
+[18.151s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/environment/path.dsv
+[18.188s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/local_setup.bash
+[18.206s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/local_setup.sh
+[18.224s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/local_setup.zsh
+[18.247s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/local_setup.dsv
+[18.270s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/package.dsv
+[18.296s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/ament_index/resource_index/packages/zed_topic_benchmark_interfaces
+[18.320s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/rosidl_cmake-extras.cmake
+[18.339s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[18.356s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[18.372s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[18.391s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[18.415s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[18.434s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[18.463s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/zed_topic_benchmark_interfacesConfig.cmake
+[18.503s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/zed_topic_benchmark_interfacesConfig-version.cmake
+[18.541s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/package.xml
+[18.575s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/lib/libzed_topic_benchmark_interfaces__rosidl_generator_c.so
+[18.576s] -- Set runtime path of "/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/lib/libzed_topic_benchmark_interfaces__rosidl_generator_c.so" to ""
+[18.578s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/lib/libzed_topic_benchmark_interfaces__rosidl_typesupport_fastrtps_c.so
+[18.581s] -- Set runtime path of "/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/lib/libzed_topic_benchmark_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[18.582s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/lib/libzed_topic_benchmark_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[18.587s] -- Set runtime path of "/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/lib/libzed_topic_benchmark_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[18.587s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/lib/libzed_topic_benchmark_interfaces__rosidl_typesupport_introspection_c.so
+[18.587s] -- Set runtime path of "/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/lib/libzed_topic_benchmark_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[18.587s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/lib/libzed_topic_benchmark_interfaces__rosidl_typesupport_c.so
+[18.587s] -- Set runtime path of "/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/lib/libzed_topic_benchmark_interfaces__rosidl_typesupport_c.so" to ""
+[18.594s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/lib/libzed_topic_benchmark_interfaces__rosidl_typesupport_introspection_cpp.so
+[18.594s] -- Set runtime path of "/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/lib/libzed_topic_benchmark_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[18.594s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/lib/libzed_topic_benchmark_interfaces__rosidl_typesupport_cpp.so
+[18.595s] -- Set runtime path of "/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/lib/libzed_topic_benchmark_interfaces__rosidl_typesupport_cpp.so" to ""
+[18.787s] Listing '/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces'...
+[18.788s] Compiling '/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces/__init__.py'...
+[18.788s] Listing '/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces/msg'...
+[18.788s] Compiling '/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces/msg/__init__.py'...
+[18.788s] Compiling '/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages/zed_topic_benchmark_interfaces/msg/_benchmark_stats_stamped.py'...
+[18.820s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/lib/libzed_topic_benchmark_interfaces__rosidl_generator_py.so
+[18.820s] -- Set runtime path of "/home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/lib/libzed_topic_benchmark_interfaces__rosidl_generator_py.so" to ""
+[18.820s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/export_zed_topic_benchmark_interfaces__rosidl_generator_cExport.cmake
+[18.820s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/export_zed_topic_benchmark_interfaces__rosidl_generator_cExport-noconfig.cmake
+[18.820s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/export_zed_topic_benchmark_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[18.820s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/export_zed_topic_benchmark_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[18.820s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/export_zed_topic_benchmark_interfaces__rosidl_generator_cppExport.cmake
+[18.821s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/export_zed_topic_benchmark_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[18.830s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/export_zed_topic_benchmark_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[18.830s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/zed_topic_benchmark_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[18.830s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/zed_topic_benchmark_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[18.831s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/zed_topic_benchmark_interfaces__rosidl_typesupport_cExport.cmake
+[18.831s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/zed_topic_benchmark_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[18.831s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/zed_topic_benchmark_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[18.831s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/zed_topic_benchmark_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[18.832s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/zed_topic_benchmark_interfaces__rosidl_typesupport_cppExport.cmake
+[18.832s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/zed_topic_benchmark_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[18.832s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/export_zed_topic_benchmark_interfaces__rosidl_generator_pyExport.cmake
+[18.839s] -- Installing: /home/gokcer/my_nodes_project/install/zed_topic_benchmark_interfaces/share/zed_topic_benchmark_interfaces/cmake/export_zed_topic_benchmark_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[18.850s] Invoked command in '/home/gokcer/my_nodes_project/build/zed_topic_benchmark_interfaces' returned '0': CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble /usr/bin/cmake --install /home/gokcer/my_nodes_project/build/zed_topic_benchmark_interfaces

@@ -1,0 +1,72 @@
+[0.686s] Invoking command in '/home/gokcer/my_nodes_project/build/zed_tutorial_pos_tracking': CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble /usr/bin/cmake /home/gokcer/my_nodes_project/src/zed-ros2-examples/tutorials/zed_pose_tutorial -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/gokcer/my_nodes_project/install/zed_tutorial_pos_tracking
+[2.306s] -- The C compiler identification is GNU 11.4.0
+[3.156s] -- The CXX compiler identification is GNU 11.4.0
+[3.170s] -- Detecting C compiler ABI info
+[3.366s] -- Detecting C compiler ABI info - done
+[3.382s] -- Check for working C compiler: /usr/bin/cc - skipped
+[3.382s] -- Detecting C compile features
+[3.395s] -- Detecting C compile features - done
+[3.411s] -- Detecting CXX compiler ABI info
+[3.598s] -- Detecting CXX compiler ABI info - done
+[3.614s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[3.615s] -- Detecting CXX compile features
+[3.615s] -- Detecting CXX compile features - done
+[3.639s] -- Found ament_cmake_auto: 1.3.11 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+[4.062s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[4.233s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[4.822s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[4.832s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[4.871s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[4.940s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[4.970s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[5.281s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[5.292s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[5.799s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[5.853s] -- Found FastRTPS: /opt/ros/humble/include  
+[5.927s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[6.017s] -- Looking for pthread.h
+[6.339s] -- Looking for pthread.h - found
+[6.339s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[6.478s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[6.480s] -- Found Threads: TRUE  
+[8.411s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[8.459s] -- Added test 'copyright' to check source files copyright and LICENSE
+[8.463s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[8.468s] -- Configured cppcheck include dirs: 
+[8.469s] -- Configured cppcheck exclude dirs and/or files: 
+[8.472s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[8.473s] -- Configured cpplint exclude dirs and/or files: 
+[8.475s] -- Added test 'lint_cmake' to check CMake code style
+[8.478s] -- Added test 'uncrustify' to check C / C++ code style
+[8.479s] -- Configured uncrustify additional arguments: 
+[8.482s] -- Added test 'xmllint' to check XML markup files
+[8.486s] -- Added test 'clang_format' to check C / C++ code style
+[8.496s] -- Configuring done
+[8.532s] -- Generating done
+[8.543s] -- Build files have been written to: /home/gokcer/my_nodes_project/build/zed_tutorial_pos_tracking
+[8.574s] Invoked command in '/home/gokcer/my_nodes_project/build/zed_tutorial_pos_tracking' returned '0': CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble /usr/bin/cmake /home/gokcer/my_nodes_project/src/zed-ros2-examples/tutorials/zed_pose_tutorial -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/gokcer/my_nodes_project/install/zed_tutorial_pos_tracking
+[8.575s] Invoking command in '/home/gokcer/my_nodes_project/build/zed_tutorial_pos_tracking': CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble /usr/bin/cmake --build /home/gokcer/my_nodes_project/build/zed_tutorial_pos_tracking -- -j8 -l8
+[8.686s] [ 50%] [32mBuilding CXX object CMakeFiles/zed_tutorial_pos_tracking.dir/src/zed_tutorial_pos_tracking.cpp.o[0m
+[44.160s] [100%] [32m[1mLinking CXX executable zed_tutorial_pos_tracking[0m
+[44.803s] [100%] Built target zed_tutorial_pos_tracking
+[44.818s] Invoked command in '/home/gokcer/my_nodes_project/build/zed_tutorial_pos_tracking' returned '0': CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble /usr/bin/cmake --build /home/gokcer/my_nodes_project/build/zed_tutorial_pos_tracking -- -j8 -l8
+[44.820s] Invoking command in '/home/gokcer/my_nodes_project/build/zed_tutorial_pos_tracking': CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble /usr/bin/cmake --install /home/gokcer/my_nodes_project/build/zed_tutorial_pos_tracking
+[44.830s] -- Install configuration: "Release"
+[44.831s] -- Execute custom install script
+[44.831s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_tutorial_pos_tracking/lib/zed_tutorial_pos_tracking/zed_tutorial_pos_tracking
+[44.843s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_tutorial_pos_tracking/share/ament_index/resource_index/package_run_dependencies/zed_tutorial_pos_tracking
+[44.855s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_tutorial_pos_tracking/share/ament_index/resource_index/parent_prefix_path/zed_tutorial_pos_tracking
+[44.866s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_tutorial_pos_tracking/share/zed_tutorial_pos_tracking/environment/ament_prefix_path.sh
+[44.878s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_tutorial_pos_tracking/share/zed_tutorial_pos_tracking/environment/ament_prefix_path.dsv
+[44.890s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_tutorial_pos_tracking/share/zed_tutorial_pos_tracking/environment/path.sh
+[44.902s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_tutorial_pos_tracking/share/zed_tutorial_pos_tracking/environment/path.dsv
+[44.915s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_tutorial_pos_tracking/share/zed_tutorial_pos_tracking/local_setup.bash
+[44.928s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_tutorial_pos_tracking/share/zed_tutorial_pos_tracking/local_setup.sh
+[44.940s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_tutorial_pos_tracking/share/zed_tutorial_pos_tracking/local_setup.zsh
+[44.953s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_tutorial_pos_tracking/share/zed_tutorial_pos_tracking/local_setup.dsv
+[44.965s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_tutorial_pos_tracking/share/zed_tutorial_pos_tracking/package.dsv
+[44.978s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_tutorial_pos_tracking/share/ament_index/resource_index/packages/zed_tutorial_pos_tracking
+[44.990s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_tutorial_pos_tracking/share/zed_tutorial_pos_tracking/cmake/zed_tutorial_pos_trackingConfig.cmake
+[45.002s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_tutorial_pos_tracking/share/zed_tutorial_pos_tracking/cmake/zed_tutorial_pos_trackingConfig-version.cmake
+[45.014s] -- Symlinking: /home/gokcer/my_nodes_project/install/zed_tutorial_pos_tracking/share/zed_tutorial_pos_tracking/package.xml
+[45.032s] Invoked command in '/home/gokcer/my_nodes_project/build/zed_tutorial_pos_tracking' returned '0': CMAKE_PREFIX_PATH=/home/gokcer/my_nodes_project/install/ros2_deepstream_json_node:/home/gokcer/my_nodes_project/install/deepstream_ros_node_json:/opt/ros/humble /usr/bin/cmake --install /home/gokcer/my_nodes_project/build/zed_tutorial_pos_tracking

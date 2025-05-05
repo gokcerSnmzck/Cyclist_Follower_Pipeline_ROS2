@@ -1,0 +1,1 @@
+/home/gokcer/my_nodes_project/build/zed_msgs/rosidl_typesupport_introspection_c/zed_msgs/msg/detail/object__rosidl_typesupport_introspection_c.h

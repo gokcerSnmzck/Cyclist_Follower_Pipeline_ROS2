@@ -1,0 +1,38 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from detection_msgs/msg/TargetPosition.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Point.idl"
+#include "std_msgs/msg/Header.idl"
+
+module detection_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "TargetPosition.msg")
+    struct TargetPosition {
+      @verbatim (language="comment", text=
+        "Standard header for timestamp and frame")
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "Unique tracking ID from DeepStream")
+      int32 id;
+
+      @verbatim (language="comment", text=
+        "Class label ID (e.g., person, cyclist, etc.)")
+      int32 class_id;
+
+      @verbatim (language="comment", text=
+        "Detection confidence score (0.0 to 1.0)")
+      float confidence;
+
+      @verbatim (language="comment", text=
+        "3D position of the target in the camera frame")
+      geometry_msgs::msg::Point position;
+
+      @verbatim (language="comment", text=
+        "Optional: Label name for readability")
+      string label;
+    };
+  };
+};
