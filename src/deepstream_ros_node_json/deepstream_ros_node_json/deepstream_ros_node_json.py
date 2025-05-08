@@ -17,6 +17,8 @@ from gi.repository import Gst, GLib
 class DeepStreamROSNode(Node):
     def __init__(self):
         super().__init__('deepstream_json_node')
+        self.declare_parameter('enable_visualization', False)
+        self.enable_visualization = self.get_parameter('enable_visualization').get_parameter_value().bool_value
         Gst.init(None)
 
         self.publisher_ = self.create_publisher(String, '/deepstream/detections', 10)
@@ -34,7 +36,15 @@ class DeepStreamROSNode(Node):
         tracker = Gst.ElementFactory.make("nvtracker", "tracker")
         nvvidconv = Gst.ElementFactory.make("nvvideoconvert", "convertor")
         nvosd = Gst.ElementFactory.make("nvdsosd", "onscreendisplay")
-        sink = Gst.ElementFactory.make("nveglglessink", "nvvideo-renderer")
+        if self.enable_visualization:
+            sink = Gst.ElementFactory.make("nveglglessink", "nvvideo-renderer")
+            sink.set_property("sync", False)
+            self.get_logger().info("Visualization ENABLED.")
+        else:
+            sink = Gst.ElementFactory.make("fakesink", "fakesink")
+            sink.set_property("sync", False)
+            self.get_logger().info("Visualization DISABLED.")
+
 
         elements = [
             ("streammux", Gst.ElementFactory.make("nvstreammux", "streammux")),
