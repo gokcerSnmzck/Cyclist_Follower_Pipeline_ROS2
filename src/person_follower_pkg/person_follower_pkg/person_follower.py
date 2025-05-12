@@ -14,7 +14,7 @@ class PersonFollower(Node):
 
         # Parameters
         self.target_id = None     # If you only want to follow a specific person
-        self.min_distance = 0.6   # meters
+        self.min_distance = 1.0   # meters
         self.max_linear_speed = 0.4
         self.max_angular_speed = 0.8
 
@@ -34,7 +34,7 @@ class PersonFollower(Node):
 
         # Control logic
         linear = min(self.max_linear_speed, max(0.0, x - self.min_distance))
-        angular = max(-self.max_angular_speed, min(self.max_angular_speed, -y))
+        angular = max(-self.max_angular_speed, min(self.max_angular_speed, y))
 
         twist = Twist()
         twist.linear.x = linear
@@ -43,6 +43,7 @@ class PersonFollower(Node):
         self.cmd_pub.publish(twist)
 
         self.get_logger().info(f"Following person ID {msg.id}: linear={linear:.2f} m/s, angular={angular:.2f} rad/s")
+        self.get_logger().info(f"Target x={x:.2f}, y={y:.2f}")
 
 
 def main(args=None):
