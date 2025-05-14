@@ -1,0 +1,17 @@
+[1.126s] Invoking command in '/home/gokcer/my_nodes_project/build/hybrid_reid_ros_node': PYTHONPATH=/home/gokcer/my_nodes_project/build/hybrid_reid_ros_node/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/gokcer/my_nodes_project/install/hybrid_reid_ros_node/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/gokcer/my_nodes_project/build/hybrid_reid_ros_node/build --no-deps symlink_data
+[1.510s] running develop
+[1.775s] running egg_info
+[1.775s] writing hybrid_reid_ros_node.egg-info/PKG-INFO
+[1.775s] writing dependency_links to hybrid_reid_ros_node.egg-info/dependency_links.txt
+[1.776s] writing entry points to hybrid_reid_ros_node.egg-info/entry_points.txt
+[1.776s] writing requirements to hybrid_reid_ros_node.egg-info/requires.txt
+[1.776s] writing top-level names to hybrid_reid_ros_node.egg-info/top_level.txt
+[1.778s] reading manifest file 'hybrid_reid_ros_node.egg-info/SOURCES.txt'
+[1.779s] writing manifest file 'hybrid_reid_ros_node.egg-info/SOURCES.txt'
+[1.837s] running build_ext
+[1.837s] Creating /home/gokcer/my_nodes_project/install/hybrid_reid_ros_node/lib/python3.10/site-packages/hybrid-reid-ros-node.egg-link (link to .)
+[1.839s] Installing hybrid_reid_ros_node script to /home/gokcer/my_nodes_project/install/hybrid_reid_ros_node/lib/hybrid_reid_ros_node
+[1.839s] 
+[1.839s] Installed /home/gokcer/my_nodes_project/build/hybrid_reid_ros_node
+[1.839s] running symlink_data
+[1.894s] Invoked command in '/home/gokcer/my_nodes_project/build/hybrid_reid_ros_node' returned '0': PYTHONPATH=/home/gokcer/my_nodes_project/build/hybrid_reid_ros_node/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/gokcer/my_nodes_project/install/hybrid_reid_ros_node/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/gokcer/my_nodes_project/build/hybrid_reid_ros_node/build --no-deps symlink_data

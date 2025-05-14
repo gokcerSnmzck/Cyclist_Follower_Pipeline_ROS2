@@ -1,0 +1,3 @@
+[console_scripts]
+hybrid_reid_ros_node = hybrid_reid_ros_node.hybrid_reid_ros_node:main
+
