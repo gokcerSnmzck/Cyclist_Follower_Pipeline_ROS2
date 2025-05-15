@@ -1,1 +1,1 @@
-![ROS_Map_Cyclist_Detection](https://github.com/user-attachments/assets/90a88547-c3c0-4052-a076-48dcf175527d)
+![v0 0 2_ROS_System_Diagram](https://github.com/user-attachments/assets/0fc1689a-f883-4939-8c31-99b79af94df8)
