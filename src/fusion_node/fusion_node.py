@@ -22,6 +22,7 @@ class FusionNode(Node):
 
         self.former_label_id = None
         self.flag_initialized = False
+        self.first_cycle = True
 
         self.publisher_ = self.create_publisher(TargetPosition, '/fused_target', 10)
         self.reset_pub = self.create_publisher(Empty, '/gesture_selector/reset', 10)
@@ -61,6 +62,7 @@ class FusionNode(Node):
                     self.selection_received = False
                     self.target_tracking_id = None
                     self.flag_initialized = False
+                    self.first_cycle = True
                     return
 
             self.get_logger().info(f"ZED label: {zed_obj.label} (label_id: {zed_obj.label_id})")
@@ -68,12 +70,33 @@ class FusionNode(Node):
             if zed_obj.label.lower() != "person":
                 continue
 
+            corners_check = self.selected_obj.bounding_box_2d.corners
+            zed_cx_check = sum(pt.kp[0] for pt in corners_check) / 4.0
+            zed_cy_check = sum(pt.kp[1] for pt in corners_check) / 4.0
+
+            self.get_logger().info(f"ZED skeleton center: ({zed_cx_check:.1f}, {zed_cy_check:.1f})")
+
             corners = zed_obj.bounding_box_2d.corners
             if len(corners) != 4:
                 continue
 
             zed_cx = sum(pt.kp[0] for pt in corners) / 4.0
             zed_cy = sum(pt.kp[1] for pt in corners) / 4.0
+
+            self.get_logger().info(f"ZED center: ({zed_cx:.1f}, {zed_cy:.1f})")
+
+            if self.first_cycle:
+                if zed_cx*0.90 < zed_cx_check < zed_cx*1.10:
+                    self.get_logger().info(f"ZED skeleton center aligned within object center --- PASSED")
+                    self.first_cycle = False
+                else:
+                    self.get_logger().info(f"ZED cannot align skeleton and object --- FAILED !")
+                    self.reset_pub.publish(Empty())
+                    self.selection_received = False
+                    self.target_tracking_id = None
+                    self.flag_initialized = False
+                    self.first_cycle = True
+                    return
 
             match = self.find_best_match(zed_cx, zed_cy)
 
