@@ -2,9 +2,9 @@
 
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Header, String
+from std_msgs.msg import Header, String, Empty
 from geometry_msgs.msg import Point
-from zed_msgs.msg import ObjectsStamped
+from zed_msgs.msg import ObjectsStamped, Object
 from detection_msgs.msg import TargetPosition
 import math
 import json
@@ -15,13 +15,20 @@ class FusionNode(Node):
         super().__init__('fusion_node')
         self.get_logger().info("FusionNode started.")
 
-        self.target_tracking_id = None  # Will be set dynamically
+        self.target_tracking_id = None
         self.last_ds_detections = []
+        self.selected_obj = None
+        self.selection_received = False
+
+        self.former_label_id = None
+        self.flag_initialized = False
 
         self.publisher_ = self.create_publisher(TargetPosition, '/fused_target', 10)
+        self.reset_pub = self.create_publisher(Empty, '/gesture_selector/reset', 10)
 
         self.create_subscription(String, '/deepstream/detections', self.ds_callback, 10)
         self.create_subscription(ObjectsStamped, '/zed/zed_node/obj_det/objects', self.zed_callback, 10)
+        self.create_subscription(Object, '/selected_person_bbox', self.selected_callback, 10)
 
     def ds_callback(self, msg):
         try:
@@ -31,17 +38,31 @@ class FusionNode(Node):
                 if obj["label"].lower() == "person" and obj["tracking_id"] is not None
             ]
             self.last_ds_detections = person_detections
-
-            if self.target_tracking_id is None and person_detections:
-                self.target_tracking_id = person_detections[0]["tracking_id"]
-                self.get_logger().info(f"Auto-selected target_tracking_id: {self.target_tracking_id}")
         except Exception as e:
             self.get_logger().error(f"Failed to parse DeepStream message: {e}")
 
+    def selected_callback(self, msg):
+        self.selected_obj = msg
+        self.selection_received = True
+        self.get_logger().info(f"Selected person ID received: {msg.label_id}")
+
     def zed_callback(self, msg):
+        if not self.selection_received:
+            self.get_logger().info("Waiting for selected person from gesture selector...")
+            return
+
         self.get_logger().info(f"ZED object count: {len(msg.objects)}")
-        
+
         for zed_obj in msg.objects:
+            if self.flag_initialized:
+                if zed_obj.label_id != self.former_label_id:
+                    self.get_logger().info(f"ZED label change --- Re-focusing is needed !")
+                    self.reset_pub.publish(Empty())
+                    self.selection_received = False
+                    self.target_tracking_id = None
+                    self.flag_initialized = False
+                    return
+
             self.get_logger().info(f"ZED label: {zed_obj.label} (label_id: {zed_obj.label_id})")
 
             if zed_obj.label.lower() != "person":
@@ -61,6 +82,10 @@ class FusionNode(Node):
             if match is None:
                 self.get_logger().warn("No matching DeepStream detection found for this ZED object.")
                 continue
+
+            if self.target_tracking_id is None:
+                self.target_tracking_id = match["tracking_id"]
+                self.get_logger().info(f"Tracking ID locked to {self.target_tracking_id}")
 
             self.get_logger().info(f"Match tracking ID: {match['tracking_id']}, Target: {self.target_tracking_id}")
 
@@ -91,12 +116,14 @@ class FusionNode(Node):
                 f"({fused_msg.position.x:.2f}, {fused_msg.position.y:.2f}, {fused_msg.position.z:.2f})"
             )
 
+            # Update persistent state
+            self.flag_initialized = True
+            self.former_label_id = zed_obj.label_id
 
     def find_best_match(self, zed_cx, zed_cy):
         best_match = None
         min_diff = float('inf')
 
-        # Example camera resolution (adjust to your camera setup)
         image_width = 960
         image_height = 540
 
@@ -115,14 +142,13 @@ class FusionNode(Node):
 
             self.get_logger().info(f"ZED center: ({zed_cx:.1f}, {zed_cy:.1f}), DS center: ({cx:.1f}, {cy:.1f}), dx: {dx:.1f}, dy: {dy:.1f}")
 
-            if dx < 0.1 and dy < 0.1:  # 10% image width/height tolerance
+            if dx < 0.1 and dy < 0.1:
                 total_diff = dx + dy
                 if total_diff < min_diff:
                     best_match = det
                     min_diff = total_diff
 
         return best_match
-
 
 
 def main(args=None):
