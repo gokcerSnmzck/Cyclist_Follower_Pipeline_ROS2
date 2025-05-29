@@ -8,6 +8,7 @@ from zed_msgs.msg import ObjectsStamped, Object
 from detection_msgs.msg import TargetPosition
 import math
 import json
+import os
 
 
 class FusionNode(Node):
@@ -29,7 +30,12 @@ class FusionNode(Node):
 
         self.create_subscription(String, '/deepstream/detections', self.ds_callback, 10)
         self.create_subscription(ObjectsStamped, '/zed/zed_node/obj_det/objects', self.zed_callback, 10)
-        self.create_subscription(Object, '/selected_person_bbox', self.selected_callback, 10)
+
+        self.gesture_detection_enabled = os.getenv("USE_GESTURE_DETECTOR",  "false").lower() == "true"
+        if self.gesture_detection_enabled:
+            self.get_logger().info("Gesture detection enabled, subscribing to selected person topic.")
+            # Subscribe to the selected person from gesture selector
+            self.create_subscription(Object, '/selected_person_bbox', self.selected_callback, 10)
 
     def ds_callback(self, msg):
         try:
@@ -48,14 +54,14 @@ class FusionNode(Node):
         self.get_logger().info(f"Selected person ID received: {msg.label_id}")
 
     def zed_callback(self, msg):
-        if not self.selection_received:
+        if self.gesture_detection_enabled and not self.selection_received:
             self.get_logger().info("Waiting for selected person from gesture selector...")
             return
 
         self.get_logger().info(f"ZED object count: {len(msg.objects)}")
 
         for zed_obj in msg.objects:
-            if self.flag_initialized:
+            if self.flag_initialized and self.gesture_detection_enabled:
                 if zed_obj.label_id != self.former_label_id:
                     self.get_logger().info(f"ZED label change --- Re-focusing is needed !")
                     self.reset_pub.publish(Empty())
@@ -70,11 +76,12 @@ class FusionNode(Node):
             if zed_obj.label.lower() != "person":
                 continue
 
-            corners_check = self.selected_obj.bounding_box_2d.corners
-            zed_cx_check = sum(pt.kp[0] for pt in corners_check) / 4.0
-            zed_cy_check = sum(pt.kp[1] for pt in corners_check) / 4.0
+            if self.gesture_detection_enabled:
+                corners_check = self.selected_obj.bounding_box_2d.corners
+                zed_cx_check = sum(pt.kp[0] for pt in corners_check) / 4.0
+                zed_cy_check = sum(pt.kp[1] for pt in corners_check) / 4.0
 
-            self.get_logger().info(f"ZED skeleton center: ({zed_cx_check:.1f}, {zed_cy_check:.1f})")
+                self.get_logger().info(f"ZED skeleton center: ({zed_cx_check:.1f}, {zed_cy_check:.1f})")
 
             corners = zed_obj.bounding_box_2d.corners
             if len(corners) != 4:
@@ -85,18 +92,19 @@ class FusionNode(Node):
 
             self.get_logger().info(f"ZED center: ({zed_cx:.1f}, {zed_cy:.1f})")
 
-            if self.first_cycle:
-                if zed_cx*0.90 < zed_cx_check < zed_cx*1.10:
-                    self.get_logger().info(f"ZED skeleton center aligned within object center --- PASSED")
-                    self.first_cycle = False
-                else:
-                    self.get_logger().info(f"ZED cannot align skeleton and object --- FAILED !")
-                    self.reset_pub.publish(Empty())
-                    self.selection_received = False
-                    self.target_tracking_id = None
-                    self.flag_initialized = False
-                    self.first_cycle = True
-                    return
+            if self.gesture_detection_enabled:
+                if self.first_cycle:
+                    if zed_cx*0.90 < zed_cx_check < zed_cx*1.10:
+                        self.get_logger().info(f"ZED skeleton center aligned within object center --- PASSED")
+                        self.first_cycle = False
+                    else:
+                        self.get_logger().info(f"ZED cannot align skeleton and object --- FAILED !")
+                        self.reset_pub.publish(Empty())
+                        self.selection_received = False
+                        self.target_tracking_id = None
+                        self.flag_initialized = False
+                        self.first_cycle = True
+                        return
 
             match = self.find_best_match(zed_cx, zed_cy)
 

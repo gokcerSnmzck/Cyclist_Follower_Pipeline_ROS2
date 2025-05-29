@@ -14,7 +14,7 @@ class PersonFollower(Node):
 
         # Parameters
         self.target_id = None     # If you only want to follow a specific person
-        self.min_distance = 1.0   # meters
+        self.min_distance = 1.5   # meters
         self.max_linear_speed = 0.4
         self.max_angular_speed = 0.8
 

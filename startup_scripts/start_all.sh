@@ -15,6 +15,13 @@ else
     ./start_deepstream.sh &
 fi
 
+sleep 1
+
+USE_GESTURE_DETECTOR=false
+if [ "$USE_GESTURE_DETECTOR" = true ]; then
+    ./start_gesture_detector.sh &
+
+
 # Wait before launching fusion
 sleep 1
 ./start_fusion.sh &
