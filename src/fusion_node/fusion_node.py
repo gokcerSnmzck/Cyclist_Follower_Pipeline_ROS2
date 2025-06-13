@@ -173,7 +173,7 @@ class FusionNode(Node):
 
             self.get_logger().info(f"ZED center: ({zed_cx:.1f}, {zed_cy:.1f}), DS center: ({cx:.1f}, {cy:.1f}), dx: {dx:.1f}, dy: {dy:.1f}")
 
-            if dx < 0.1 and dy < 0.1:
+            if dx < 0.2 and dy < 0.2:
                 total_diff = dx + dy
                 if total_diff < min_diff:
                     best_match = det
