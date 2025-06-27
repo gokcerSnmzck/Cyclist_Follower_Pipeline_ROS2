@@ -1,0 +1,24 @@
+from setuptools import setup
+
+package_name = 'cmd_vel_to_can_node'
+
+setup(
+    name=package_name,
+    version='0.0.0',
+    packages=[package_name],
+    data_files=[
+        ('share/' + package_name, ['package.xml']),
+    ],
+    install_requires=['setuptools'],
+    zip_safe=True,
+    maintainer='Your Name',
+    maintainer_email='your@email.com',
+    description='Translate /cmd_vel to CAN bus messages.',
+    license='MIT',
+    tests_require=['pytest'],
+    entry_points={
+        'console_scripts': [
+            'cmd_vel_to_can_node = cmd_vel_to_can_node.cmd_vel_to_can_node:main',
+        ],
+    },
+)

@@ -1,0 +1,324 @@
+[INFO] [launch]: All log files can be found below /home/gokcer/.ros/log/2025-06-27-01-58-48-321360-gokcer-X580VD-269687
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [launch.user]: Using common configuration file: /home/gokcer/CAN_Combined_Pipeline/install/zed_wrapper/share/zed_wrapper/config/common_stereo.yaml
+[INFO] [launch.user]: Using camera configuration file: /home/gokcer/CAN_Combined_Pipeline/install/zed_wrapper/share/zed_wrapper/config/zed2i.yaml
+[INFO] [launch.user]: Using FFMPEG configuration file: /home/gokcer/CAN_Combined_Pipeline/install/zed_wrapper/share/zed_wrapper/config/ffmpeg.yaml
+[INFO] [launch.user]: Loading ZED node `zed_node` in container `/zed/zed_container`
+[INFO] [robot_state_publisher-1]: process started with pid [269700]
+[INFO] [component_container_isolated-2]: process started with pid [269702]
+[robot_state_publisher-1] [0m[INFO] [1750982328.621529045] [zed.zed_state_publisher]: got segment zed_camera_center[0m
+[robot_state_publisher-1] [0m[INFO] [1750982328.621610796] [zed.zed_state_publisher]: got segment zed_camera_link[0m
+[robot_state_publisher-1] [0m[INFO] [1750982328.621627121] [zed.zed_state_publisher]: got segment zed_left_camera_frame[0m
+[robot_state_publisher-1] [0m[INFO] [1750982328.621639311] [zed.zed_state_publisher]: got segment zed_left_camera_optical_frame[0m
+[robot_state_publisher-1] [0m[INFO] [1750982328.621650716] [zed.zed_state_publisher]: got segment zed_right_camera_frame[0m
+[robot_state_publisher-1] [0m[INFO] [1750982328.621661964] [zed.zed_state_publisher]: got segment zed_right_camera_optical_frame[0m
+[component_container_isolated-2] [0m[INFO] [1750982328.848298057] [zed.zed_container]: Load Library: /home/gokcer/CAN_Combined_Pipeline/install/zed_components/lib/libzed_camera_component.so[0m
+[component_container_isolated-2] [0m[INFO] [1750982328.901090138] [zed.zed_container]: Found class: rclcpp_components::NodeFactoryTemplate<stereolabs::ZedCamera>[0m
+[component_container_isolated-2] [0m[INFO] [1750982328.901140765] [zed.zed_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<stereolabs::ZedCamera>[0m
+[component_container_isolated-2] [0m[INFO] [1750982328.967028208] [zed.zed_node]: ********************************[0m
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/zed/zed_node' in container '/zed/zed_container'
+[component_container_isolated-2] [0m[INFO] [1750982328.967107079] [zed.zed_node]:       ZED Camera Component [0m
+[component_container_isolated-2] [0m[INFO] [1750982328.967118179] [zed.zed_node]: ********************************[0m
+[component_container_isolated-2] [0m[INFO] [1750982328.967124519] [zed.zed_node]:  * namespace: /zed[0m
+[component_container_isolated-2] [0m[INFO] [1750982328.967130842] [zed.zed_node]:  * node name: zed_node[0m
+[component_container_isolated-2] [0m[INFO] [1750982328.967135846] [zed.zed_node]: ********************************[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.017480093] [zed.zed_node]: *** DEBUG parameters ***[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.017668574] [zed.zed_node]:  * SDK Verbose: 1[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.017794740] [zed.zed_node]:  * SDK Verbose File: [0m
+[component_container_isolated-2] [0m[INFO] [1750982329.017862971] [zed.zed_node]:  * Debug Common: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.017948188] [zed.zed_node]:  * Debug Simulation: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.018005945] [zed.zed_node]:  * Debug Video/Depth: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.018052882] [zed.zed_node]:  * Debug Control settings: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.018098968] [zed.zed_node]:  * Debug Point Cloud: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.018166349] [zed.zed_node]:  * Debug GNSS: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.018232216] [zed.zed_node]:  * Debug Positional Tracking: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.018274758] [zed.zed_node]:  * Debug sensors: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.018332393] [zed.zed_node]:  * Debug Mapping: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.018379320] [zed.zed_node]:  * Debug Object Detection: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.018427413] [zed.zed_node]:  * Debug Body Tracking: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.018476753] [zed.zed_node]:  * Debug Streaming: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.018511561] [zed.zed_node]:  * Debug ROI: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.018544423] [zed.zed_node]:  * Debug Advanced: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.018603686] [zed.zed_node]: *** SVO INPUT parameters ***[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.018639725] [zed.zed_node]: *** LOCAL STREAMING parameters ***[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.018682106] [zed.zed_node]: *** GENERAL parameters ***[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.018730932] [zed.zed_node]:  * Camera model: zed2i - ZED 2i[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.018800739] [zed.zed_node]:  * Camera name: zed[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.018881693] [zed.zed_node]:  * Camera SN: 0[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.018945848] [zed.zed_node]:  * Camera ID: -1[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.019011307] [zed.zed_node]:  * Camera timeout [sec]: 5[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.019073702] [zed.zed_node]:  * Camera reconnection temptatives: 5[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.019142054] [zed.zed_node]:  * Camera framerate: 30[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.019203877] [zed.zed_node]:  * GPU ID: -1[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.019273434] [zed.zed_node]:  * Asynchronous image retrieval: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.019342610] [zed.zed_node]:  * Image Validity Check: ENABLED[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.019451872] [zed.zed_node]:  * Camera resolution: HD1080[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.019531430] [zed.zed_node]:  * Publishing resolution: CUSTOM[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.019620460] [zed.zed_node]:  * Publishing downscale factor: 2[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.019690440] [zed.zed_node]:  * OpenCV custom calibration: [0m
+[component_container_isolated-2] [0m[INFO] [1750982329.019765873] [zed.zed_node]:  * Camera self calibration: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.019835942] [zed.zed_node]:  * Camera flip: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.019907223] [zed.zed_node]:  * [DYN] Publish framerate [Hz]:  30[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.019933317] [zed.zed_node]: *** VIDEO parameters ***[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.019998750] [zed.zed_node]:  * [DYN] Brightness: 4[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.020066060] [zed.zed_node]:  * [DYN] Contrast: 4[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.020137312] [zed.zed_node]:  * [DYN] Hue: 0[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.020207899] [zed.zed_node]:  * [DYN] Saturation: 4[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.020274297] [zed.zed_node]:  * [DYN] Sharpness: 4[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.020345606] [zed.zed_node]:  * [DYN] Gamma: 8[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.020414585] [zed.zed_node]:  * [DYN] Auto Exposure/Gain: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.020523617] [zed.zed_node]:  * [DYN] Exposure: 80[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.020591063] [zed.zed_node]:  * [DYN] Gain: 80[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.020657249] [zed.zed_node]:  * [DYN] Auto White Balance: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.020727833] [zed.zed_node]:  * [DYN] White Balance Temperature: 42[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.020754857] [zed.zed_node]: *** DEPTH parameters ***[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.020845317] [zed.zed_node]:  * Depth mode: ULTRA [3][0m
+[component_container_isolated-2] [0m[INFO] [1750982329.020919298] [zed.zed_node]:  * Min depth [m]: 0.3[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.020989026] [zed.zed_node]:  * Max depth [m]: 10[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.021058778] [zed.zed_node]:  * Depth Stabilization: 30[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.021129771] [zed.zed_node]:  * OpenNI mode (16bit point cloud): FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.021200526] [zed.zed_node]:  * [DYN] Point cloud rate [Hz]: 15[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.021274296] [zed.zed_node]:  * Point cloud resolution: COMPACT[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.021343161] [zed.zed_node]:  * [DYN] Depth Confidence: 95[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.021419245] [zed.zed_node]:  * [DYN] Depth Texture Confidence: 100[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.021496396] [zed.zed_node]:  * [DYN] Remove saturated areas: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.021529369] [zed.zed_node]: *** GNSS FUSION parameters ***[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.021598167] [zed.zed_node]:  * GNSS fusion enabled: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.021623453] [zed.zed_node]: *** POSITIONAL TRACKING parameters ***[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.021688739] [zed.zed_node]:  * Positional tracking enabled: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.021771049] [zed.zed_node]:  * Positional tracking mode: GEN 1[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.021844990] [zed.zed_node]:  * Map frame id: map[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.021913342] [zed.zed_node]:  * Odometry frame id: odom[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.021981785] [zed.zed_node]:  * Broadcast Odometry TF: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.022056176] [zed.zed_node]:  * Broadcast Pose TF: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.022132019] [zed.zed_node]:  * [DYN] Depth minimum range: 0[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.022220599] [zed.zed_node]:  * [DYN] TF timestamp offset: 0[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.022302584] [zed.zed_node]:  * [DYN] Path publishing rate: 2[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.022383341] [zed.zed_node]:  * Path history lenght: -1[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.022483631] [zed.zed_node]:  * Initial pose: [0,0,0,0,0,0,][0m
+[component_container_isolated-2] [0m[INFO] [1750982329.022572363] [zed.zed_node]:  * Area Memory: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.022652288] [zed.zed_node]:  * Area Memory DB: [0m
+[component_container_isolated-2] [0m[INFO] [1750982329.022730409] [zed.zed_node]:  * Camera is static: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.022816375] [zed.zed_node]:  * Gravity as origin [not for ZED]: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.022895496] [zed.zed_node]:  * IMU Fusion [not for ZED]: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.022979541] [zed.zed_node]:  * Floor Alignment: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.023057391] [zed.zed_node]:  * Reset Odometry with Loop Closure: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.023142766] [zed.zed_node]:  * 2D mode: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.023221511] [zed.zed_node]:  * Reset pose with SVO loop: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.023249632] [zed.zed_node]: *** Region of Interest parameters ***[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.023319811] [zed.zed_node]:  * Automatic ROI generation: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.023412628] [zed.zed_node]:  * Manual ROI polygon: [][0m
+[component_container_isolated-2] [0m[INFO] [1750982329.023432966] [zed.zed_node]: *** SENSORS STACK parameters ***[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.023525599] [zed.zed_node]:  * Broadcast IMU TF [not for ZED]: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.023610698] [zed.zed_node]:  * Sensors Camera Sync: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.023698020] [zed.zed_node]:  * Sensors publishing rate: 100 Hz[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.023718096] [zed.zed_node]: *** Spatial Mapping parameters ***[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.023798429] [zed.zed_node]:  * Spatial Mapping Enabled: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.023873492] [zed.zed_node]:  * Spatial Mapping resolution [m]: 0.05[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.023936638] [zed.zed_node]:  * 3D Max Mapping range [m]: 5[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.023994331] [zed.zed_node]:  * Map publishing rate [Hz]: 1[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.024056244] [zed.zed_node]:  * Clicked point topic: /clicked_point[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.024122087] [zed.zed_node]:  * Plane Det. Max Dist. Thresh.: 0.15[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.024184464] [zed.zed_node]:  * Plane Det. Normals Sim. Thresh.: 15[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.024216541] [zed.zed_node]: *** Object Det. parameters ***[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.024270368] [zed.zed_node]:  * Object Det. enabled: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.024343522] [zed.zed_node]:  * Object Det. model: MULTI CLASS BOX FAST[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.024399207] [zed.zed_node]:  * Object Det. allow reduced precision: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.024468486] [zed.zed_node]:  * Object Det. maximum range [m]: 20[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.024528473] [zed.zed_node]:  * Object Det. min. confidence: 75[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.024586732] [zed.zed_node]:  * Object Det. prediction timeout [sec]: 0.5[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.024643527] [zed.zed_node]:  * Object Det. tracking: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.024722907] [zed.zed_node]:  * Object Filtering mode: 1 - NMS3D[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.024780361] [zed.zed_node]:  * MultiClassBox people: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.024835874] [zed.zed_node]:  * MultiClassBox vehicles: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.024919481] [zed.zed_node]:  * MultiClassBox bags: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.025000087] [zed.zed_node]:  * MultiClassBox animals: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.025092101] [zed.zed_node]:  * MultiClassBox electronics: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.025154764] [zed.zed_node]:  * MultiClassBox fruits and vegetables: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.025212113] [zed.zed_node]:  * MultiClassBox sport-related objects: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.025232129] [zed.zed_node]: *** Body Track. parameters ***[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.025286068] [zed.zed_node]:  * Body Track. enabled: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.025366161] [zed.zed_node]:  * Body Track. model: HUMAN BODY MEDIUM[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.025455976] [zed.zed_node]:  * Body Track. format: BODY 38[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.025515596] [zed.zed_node]:  * Body Track. allow reduced precision: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.025578135] [zed.zed_node]:  * Body Track. maximum range [m]: 20[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.025636017] [zed.zed_node]:  * Body Track. KP selection: FULL[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.025699966] [zed.zed_node]:  * Body fitting: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.025765208] [zed.zed_node]:  * Body joints tracking: TRUE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.025833173] [zed.zed_node]:  * Body Track. prediction timeout [sec]: 0.5[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.025906178] [zed.zed_node]:  * Body Track. confidence thresh.: 50[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.025966821] [zed.zed_node]:  * Body Track. min. KP thresh.: 5[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.025987820] [zed.zed_node]: *** Streaming Server parameters ***[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.026040261] [zed.zed_node]:  * Streaming Server enabled: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.026095606] [zed.zed_node]:  * Stream codec: H264[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.026159060] [zed.zed_node]:  * Stream port: 30000[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.026226402] [zed.zed_node]:  * Stream bitrate: 12500[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.026297684] [zed.zed_node]:  * Stream GOP size: -1[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.026362418] [zed.zed_node]:  * Stream Chunk size: 16084[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.026424179] [zed.zed_node]:  * Adaptive bitrate: FALSE[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.026494382] [zed.zed_node]:  * Target frame rate:0[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.026521554] [zed.zed_node]: *** Advanced parameters ***[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.026574976] [zed.zed_node]:  * Thread sched. policy: SCHED_BATCH[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.026626160] [zed.zed_node]: *** SERVICES ***[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.027310354] [zed.zed_node]:  * '/zed/zed_node/reset_odometry'[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.027738621] [zed.zed_node]:  * '/zed/zed_node/reset_pos_tracking'[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.028579986] [zed.zed_node]:  * '/zed/zed_node/set_pose'[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.029035197] [zed.zed_node]:  * '/zed/zed_node/enable_obj_det'[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.029460597] [zed.zed_node]:  * '/zed/zed_node/enable_body_trk'[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.029897918] [zed.zed_node]:  * '/zed/zed_node/enable_mapping'[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.030367529] [zed.zed_node]:  * '/zed/zed_node/enable_streaming'[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.030906726] [zed.zed_node]:  * '/zed/zed_node/start_svo_rec'[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.031324872] [zed.zed_node]:  * '/zed/zed_node/stop_svo_rec'[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.031850471] [zed.zed_node]:  * '/zed/zed_node/set_roi'[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.032241599] [zed.zed_node]:  * '/zed/zed_node/reset_roi'[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.032277547] [zed.zed_node]: ***** STARTING CAMERA *****[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.162702605] [zed.zed_node]: ZED SDK Version: 5.0.0 - Build 99275_9ed05d06[0m
+[component_container_isolated-2] [0m[INFO] [1750982329.167140831] [zed.zed_node]: *** CAMERA OPENING ***[0m
+[component_container_isolated-2] [2025-06-26 23:58:49 UTC][ZED][INFO] Logging level INFO
+[component_container_isolated-2] [2025-06-26 23:58:50 UTC][ZED][WARNING] [Init]  ULTRA is deprecated; consider updating to a NEURAL depth mode
+[component_container_isolated-2] [2025-06-26 23:58:51 UTC][ZED][INFO] [Init]  Camera successfully opened.
+[component_container_isolated-2] [2025-06-26 23:58:51 UTC][ZED][INFO] [Init]  Camera FW version: 1523
+[component_container_isolated-2] [2025-06-26 23:58:51 UTC][ZED][INFO] [Init]  Video mode: HD1080@30
+[component_container_isolated-2] [2025-06-26 23:58:51 UTC][ZED][INFO] [Init]  Serial Number: S/N 37677146
+[component_container_isolated-2] [2025-06-26 23:58:51 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture. (Error code: 0x01) 
+[component_container_isolated-2] [0m[INFO] [1750982331.809850090] [zed.zed_node]: ZED SDK running on GPU #0[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.809938151] [zed.zed_node]:  * Camera Model  -> ZED 2i[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.809958920] [zed.zed_node]:  * Serial Number -> 37677146[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810063119] [zed.zed_node]:  * Focal Lenght	-> 2.10325 mm[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810095321] [zed.zed_node]:  * Input		-> USB[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810118315] [zed.zed_node]:  * Camera FW Version  -> 1523[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810149335] [zed.zed_node]:  * Sensors FW Version -> 777[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810169886] [zed.zed_node]:  * Camera grab size -> 1920x1080[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810190257] [zed.zed_node]:  * Color/Depth publishing size -> 960x540[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810208384] [zed.zed_node]:  * Point Cloud publishing size -> 448x256[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810238657] [zed.zed_node]: *** TF FRAMES ***[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810256795] [zed.zed_node]:  * Map			-> map[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810272781] [zed.zed_node]:  * Odometry		-> odom[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810312662] [zed.zed_node]:  * Base			-> zed_camera_link[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810330448] [zed.zed_node]:  * Camera		-> zed_camera_center[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810346997] [zed.zed_node]:  * Left			-> zed_left_camera_frame[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810362979] [zed.zed_node]:  * Left Optical		-> zed_left_camera_optical_frame[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810379446] [zed.zed_node]:  * RGB			-> zed_left_camera_frame[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810396346] [zed.zed_node]:  * RGB Optical		-> zed_left_camera_optical_frame[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810413237] [zed.zed_node]:  * Right			-> zed_right_camera_frame[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810429299] [zed.zed_node]:  * Right Optical		-> zed_right_camera_optical_frame[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810452450] [zed.zed_node]:  * Depth			-> zed_left_camera_frame[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810474506] [zed.zed_node]:  * Depth Optical		-> zed_left_camera_optical_frame[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810493960] [zed.zed_node]:  * Point Cloud		-> zed_left_camera_optical_frame[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810511062] [zed.zed_node]:  * Disparity		-> zed_left_camera_frame[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810527451] [zed.zed_node]:  * Disparity Optical	-> zed_left_camera_optical_frame[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810542997] [zed.zed_node]:  * Confidence		-> zed_left_camera_frame[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810570820] [zed.zed_node]:  * Confidence Optical	-> zed_left_camera_optical_frame[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810588345] [zed.zed_node]:  * IMU			-> zed_imu_link[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810605008] [zed.zed_node]:  * Barometer		-> zed_camera_center[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810621311] [zed.zed_node]:  * Magnetometer		-> zed_imu_link[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810637159] [zed.zed_node]:  * Left Temperature	-> zed_left_camera_frame[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810653411] [zed.zed_node]:  * Right Temperature	-> zed_right_camera_frame[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.810711783] [zed.zed_node]: *** PUBLISHED TOPICS ***[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.812510542] [zed.zed_node]: Advertised on topic: /zed/zed_node/status/health[0m
+[component_container_isolated-2] [0m[INFO] [1750982331.813324005] [zed.zed_node]: Advertised on topic: /zed/zed_node/status/heartbeat[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.013919646] [FFMPEGPublisher]: using encoder: libx264[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.025595587] [zed.zed_node]: Advertised on topic: /zed/zed_node/rgb/image_rect_color[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.025665995] [zed.zed_node]: Advertised on topic: /zed/zed_node/rgb/camera_info[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.027195806] [FFMPEGPublisher]: using encoder: libx264[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.029263184] [zed.zed_node]: Advertised on topic: /zed/zed_node/rgb_gray/image_rect_gray[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.029308328] [zed.zed_node]: Advertised on topic: /zed/zed_node/rgb_gray/camera_info[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.030931466] [FFMPEGPublisher]: using encoder: libx264[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.032819680] [zed.zed_node]: Advertised on topic: /zed/zed_node/rgb_raw/image_raw_color[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.032868604] [zed.zed_node]: Advertised on topic: /zed/zed_node/rgb_raw/camera_info[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.034401782] [FFMPEGPublisher]: using encoder: libx264[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.036631919] [zed.zed_node]: Advertised on topic: /zed/zed_node/rgb_raw_gray/image_raw_gray[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.036773898] [zed.zed_node]: Advertised on topic: /zed/zed_node/rgb_raw_gray/camera_info[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.038515232] [FFMPEGPublisher]: using encoder: libx264[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.040785317] [zed.zed_node]: Advertised on topic: /zed/zed_node/left/image_rect_color[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.040843377] [zed.zed_node]: Advertised on topic: /zed/zed_node/left/camera_info[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.042433117] [FFMPEGPublisher]: using encoder: libx264[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.044608599] [zed.zed_node]: Advertised on topic: /zed/zed_node/left_gray/image_rect_gray[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.044656578] [zed.zed_node]: Advertised on topic: /zed/zed_node/left_gray/camera_info[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.046260437] [FFMPEGPublisher]: using encoder: libx264[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.049504369] [zed.zed_node]: Advertised on topic: /zed/zed_node/left_raw/image_raw_color[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.049601561] [zed.zed_node]: Advertised on topic: /zed/zed_node/left_raw/camera_info[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.051837649] [FFMPEGPublisher]: using encoder: libx264[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.053981988] [zed.zed_node]: Advertised on topic: /zed/zed_node/left_raw_gray/image_raw_gray[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.054032464] [zed.zed_node]: Advertised on topic: /zed/zed_node/left_raw_gray/camera_info[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.055717929] [FFMPEGPublisher]: using encoder: libx264[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.058081112] [zed.zed_node]: Advertised on topic: /zed/zed_node/right/image_rect_color[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.058129578] [zed.zed_node]: Advertised on topic: /zed/zed_node/right/camera_info[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.059592881] [FFMPEGPublisher]: using encoder: libx264[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.061630003] [zed.zed_node]: Advertised on topic: /zed/zed_node/right_gray/image_rect_gray[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.061675891] [zed.zed_node]: Advertised on topic: /zed/zed_node/right_gray/camera_info[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.063140878] [FFMPEGPublisher]: using encoder: libx264[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.065155562] [zed.zed_node]: Advertised on topic: /zed/zed_node/right_raw/image_raw_color[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.065196939] [zed.zed_node]: Advertised on topic: /zed/zed_node/right_raw/camera_info[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.066586206] [FFMPEGPublisher]: using encoder: libx264[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.068582680] [zed.zed_node]: Advertised on topic: /zed/zed_node/right_raw_gray/image_raw_gray[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.068625920] [zed.zed_node]: Advertised on topic: /zed/zed_node/right_raw_gray/camera_info[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.069857931] [FFMPEGPublisher]: using encoder: libx264[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.071819830] [zed.zed_node]: Advertised on topic: /zed/zed_node/depth/depth_registered[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.071864322] [zed.zed_node]: Advertised on topic: /zed/zed_node/depth/camera_info[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.072696418] [zed.zed_node]: Advertised on topic: /zed/zed_node/depth/depth_info[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.074136004] [FFMPEGPublisher]: using encoder: libx264[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.075794472] [zed.zed_node]: Advertised on topic: /zed/zed_node/stereo/image_rect_color[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.077265378] [FFMPEGPublisher]: using encoder: libx264[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.078931563] [zed.zed_node]: Advertised on topic: /zed/zed_node/stereo_raw/image_raw_color[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.079371181] [zed.zed_node]: Advertised on topic: /zed/zed_node/confidence/confidence_map[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.081838588] [zed.zed_node]: Advertised on topic: /zed/zed_node/disparity/disparity_image[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.095371781] [zed.zed_node]: Advertised on topic: /zed/zed_node/point_cloud/cloud_registered[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.096641785] [zed.zed_node]: Advertised on topic: /zed/zed_node/pose[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.097460576] [zed.zed_node]: Advertised on topic: /zed/zed_node/pose/status[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.098384839] [zed.zed_node]: Advertised on topic: /zed/zed_node/pose_with_covariance[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.100346245] [zed.zed_node]: Advertised on topic: /zed/zed_node/odom[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.101486282] [zed.zed_node]: Advertised on topic: /zed/zed_node/path_map[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.102211894] [zed.zed_node]: Advertised on topic: /zed/zed_node/path_odom[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.104533625] [zed.zed_node]: Advertised on topic: /zed/plane_marker[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.106177627] [zed.zed_node]: Advertised on topic: /zed/plane[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.107222963] [zed.zed_node]: Advertised on topic: /zed/zed_node/imu/data[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.107906135] [zed.zed_node]: Advertised on topic: /zed/zed_node/imu/data_raw[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.108867233] [zed.zed_node]: Advertised on topic: /zed/zed_node/temperature/imu[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.109787321] [zed.zed_node]: Advertised on topic: /zed/zed_node/imu/mag[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.110671979] [zed.zed_node]: Advertised on topic: /zed/zed_node/atm_press[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.111419994] [zed.zed_node]: Advertised on topic: /zed/zed_node/temperature/left[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.112092821] [zed.zed_node]: Advertised on topic: /zed/zed_node/temperature/right[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.112781088] [zed.zed_node]: Advertised on topic: /zed/zed_node/left_cam_imu_transform[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.112828179] [zed.zed_node]: Camera-IMU Translation: 
+[component_container_isolated-2]  -0.002 -0.023061 0.000217[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.112888170] [zed.zed_node]: Camera-IMU Rotation:
+[component_container_isolated-2] 7B5E520B7D80
+[component_container_isolated-2] 0.999985 -0.000149 0.005508
+[component_container_isolated-2] 0.000170 0.999993 -0.003703
+[component_container_isolated-2] -0.005507 0.003704 0.999978
+[component_container_isolated-2] [0m
+[component_container_isolated-2] [0m[INFO] [1750982332.112908224] [zed.zed_node]: *** Subscribers ***[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.114570976] [zed.zed_node]:  * Plane detection: '/clicked_point'[0m
+[component_container_isolated-2] [33m[WARN] [1750982332.161081134] [zed.zed_node]: POSITIONAL TRACKING disabled in the parameters, but forced to ENABLE because required by `pos_tracking.publish_tf: true`[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.165167012] [zed.zed_node]: *** Starting Positional Tracking ***[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.165209093] [zed.zed_node]:  * Waiting for valid static transformations...[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.165299804] [zed.zed_node]:  Static transform ref. CMOS Sensor to Base [zed_left_camera_frame -> zed_camera_link][0m
+[component_container_isolated-2] [0m[INFO] [1750982332.165324318] [zed.zed_node]:   * Translation: {0.010,-0.060,-0.015}[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.165342010] [zed.zed_node]:   * Rotation: {0.000,-0.000,0.000}[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.165380621] [zed.zed_node]:  Static transform ref. CMOS Sensor to Camera Center [zed_left_camera_frame -> zed_camera_center][0m
+[component_container_isolated-2] [0m[INFO] [1750982332.165397284] [zed.zed_node]:   * Translation: {0.010,-0.060,0.000}[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.165413419] [zed.zed_node]:   * Rotation: {0.000,-0.000,0.000}[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.165448579] [zed.zed_node]:  Static transform Camera Center to Base [zed_camera_center -> zed_camera_link][0m
+[component_container_isolated-2] [0m[INFO] [1750982332.165465837] [zed.zed_node]:   * Translation: {0.000,0.000,-0.015}[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.165486922] [zed.zed_node]:   * Rotation: {0.000,-0.000,0.000}[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.166576430] [zed.zed_node]: Initial ZED left camera pose (ZED pos. tracking): [0m
+[component_container_isolated-2] [0m[INFO] [1750982332.166604522] [zed.zed_node]:  * T: [-0.01,0.06,0.015][0m
+[component_container_isolated-2] [0m[INFO] [1750982332.166625517] [zed.zed_node]:  * Q: [0,0,0,1][0m
+[component_container_isolated-2] [0m[INFO] [1750982332.321554853] [zed.zed_node]: *** Starting Object Detection ***[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.917580809] [zed.zed_node]: Modifying 1 parameters[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.917698138] [zed.zed_node]: Correctly set 1/1 parameters[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.918058043] [zed.zed_node]: Modifying 1 parameters[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.918091399] [zed.zed_node]: Correctly set 1/1 parameters[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.918314958] [zed.zed_node]: Modifying 1 parameters[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.918338718] [zed.zed_node]: Correctly set 1/1 parameters[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.920616560] [zed.zed_node]:  * Advertised on topic /zed/zed_node/obj_det/objects[0m
+[component_container_isolated-2] [0m[INFO] [1750982332.920665975] [zed.zed_node]: *** Starting Body Tracking ***[0m
+[component_container_isolated-2] [0m[INFO] [1750982333.656209008] [zed.zed_node]: Modifying 1 parameters[0m
+[component_container_isolated-2] [0m[INFO] [1750982333.656321680] [zed.zed_node]: Correctly set 1/1 parameters[0m
+[component_container_isolated-2] [0m[INFO] [1750982333.656684159] [zed.zed_node]: Modifying 1 parameters[0m
+[component_container_isolated-2] [0m[INFO] [1750982333.656712921] [zed.zed_node]: Correctly set 1/1 parameters[0m
+[component_container_isolated-2] [0m[INFO] [1750982333.656840498] [zed.zed_node]: Modifying 1 parameters[0m
+[component_container_isolated-2] [0m[INFO] [1750982333.656858462] [zed.zed_node]: Correctly set 1/1 parameters[0m
+[component_container_isolated-2] [0m[INFO] [1750982333.657909085] [zed.zed_node]: Advertised on topic /zed/zed_node/body_trk/skeletons[0m
+Terminated

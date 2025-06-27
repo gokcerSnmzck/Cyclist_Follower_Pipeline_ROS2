@@ -1,0 +1,77 @@
+#!/usr/bin/env python3
+
+import rclpy
+from rclpy.node import Node
+
+from std_msgs.msg import Header
+from geometry_msgs.msg import Point
+
+from detection_msgs.msg import Detection2DArray, Detection2D, BoundingBox2D
+from zed_msgs.msg import ObjectsStamped, Object
+
+import random
+
+
+class TestDetectionPublisher(Node):
+    def __init__(self):
+        super().__init__('test_detection_publisher')
+        self.get_logger().info("TestDetectionPublisher started.")
+
+        self.ds_pub = self.create_publisher(Detection2DArray, '/deepstream/detections', 10)
+        self.zed_pub = self.create_publisher(ObjectsStamped, '/zed2i/obj_det/objects', 10)
+
+        self.timer = self.create_timer(1.0, self.publish_fake_data)
+        self.tracking_id = 1
+
+    def publish_fake_data(self):
+        now = self.get_clock().now().to_msg()
+
+        # --- Fake DeepStream detection ---
+        bbox = BoundingBox2D()
+        bbox.x = 300.0
+        bbox.y = 200.0
+        bbox.width = 100.0
+        bbox.height = 200.0
+
+        det = Detection2D()
+        det.tracking_id = self.tracking_id
+        det.class_id = 0
+        det.label = "person"
+        det.confidence = 0.92
+        det.bbox = bbox
+
+        det_array = Detection2DArray()
+        det_array.header = Header(stamp=now, frame_id="zed2i_left_camera_frame")
+        det_array.detections.append(det)
+
+        self.ds_pub.publish(det_array)
+        self.get_logger().info(f"Published fake DeepStream detection (id={det.tracking_id})")
+
+        # --- Fake ZED object ---
+        obj_msg = ObjectsStamped()
+        obj_msg.header = Header(stamp=now, frame_id="zed2i_left_camera_frame")
+
+        # Use the same label_id to ensure fusion match
+        obj = Object()
+        obj.label_id = 0  # class_id == 0 (person)
+        obj.label = "person"
+        obj.confidence = 90.0
+        # obj.position = [2.0, 0.0, 6.0]  # 3D position in meters
+        obj.position = [0.35, 0.69, 1.0]  # Will project closer to (350, 300)
+
+        obj_msg.objects.append(obj)
+
+        self.zed_pub.publish(obj_msg)
+        self.get_logger().info("Published fake ZED object.")
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = TestDetectionPublisher()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,169 @@
+import rclpy
+from rclpy.node import Node
+import gi
+import json
+import pyds
+import sys
+import threading
+from std_msgs.msg import String
+
+gi.require_version('Gst', '1.0')
+from gi.repository import Gst, GLib
+
+
+class DeepStreamROSNode(Node):
+    def __init__(self):
+        super().__init__('deepstream_json_node')
+        Gst.init(None)
+
+        # Create GStreamer pipeline
+        self.pipeline = Gst.Pipeline()
+
+        source = Gst.ElementFactory.make("v4l2src", "usb-cam-source")
+        caps_v4l2src = Gst.ElementFactory.make("capsfilter", "v4l2src_caps")
+        vidconvsrc = Gst.ElementFactory.make("videoconvert", "convertor_src1")
+        nvvidconvsrc = Gst.ElementFactory.make("nvvideoconvert", "convertor_src2")
+        caps_vidconvsrc = Gst.ElementFactory.make("capsfilter", "nvmm_caps")
+        streammux = Gst.ElementFactory.make("nvstreammux", "Stream-muxer")
+        pgie = Gst.ElementFactory.make("nvinfer", "primary-inference")
+        tracker = Gst.ElementFactory.make("nvtracker", "tracker")
+        nvvidconv = Gst.ElementFactory.make("nvvideoconvert", "convertor")
+        nvosd = Gst.ElementFactory.make("nvdsosd", "onscreendisplay")
+        sink = Gst.ElementFactory.make("nveglglessink", "nvvideo-renderer")
+
+        elements = [
+            ("source", source), ("caps_v4l2src", caps_v4l2src), ("vidconvsrc", vidconvsrc),
+            ("nvvidconvsrc", nvvidconvsrc), ("caps_vidconvsrc", caps_vidconvsrc),
+            ("streammux", streammux), ("pgie", pgie), ("tracker", tracker),
+            ("nvvidconv", nvvidconv), ("nvosd", nvosd), ("sink", sink)
+        ]
+
+        for name, elem in elements:
+            if not elem:
+                self.get_logger().error(f"Failed to create element: {name}")
+                raise RuntimeError(f"GStreamer element creation failed: {name}")
+            self.pipeline.add(elem)
+
+        # Configure elements
+        source.set_property('device', "/dev/video0")
+        caps_v4l2src.set_property('caps', Gst.Caps.from_string("video/x-raw, framerate=30/1"))
+        caps_vidconvsrc.set_property('caps', Gst.Caps.from_string("video/x-raw(memory:NVMM)"))
+        streammux.set_property('width', 1920)
+        streammux.set_property('height', 1080)
+        streammux.set_property('batch-size', 1)
+        streammux.set_property('batched-push-timeout', 33000)
+        pgie.set_property('config-file-path', "/home/gokcer/DeepStream-Yolo/config_infer_primary_yolo11.txt")
+        tracker.set_property('ll-lib-file', "/opt/nvidia/deepstream/deepstream/lib/libnvds_nvmultiobjecttracker.so")
+        tracker.set_property('ll-config-file', "/home/gokcer/DeepStream-Yolo/config_tracker_NvDCF_perf.yml")
+        sink.set_property('sync', False)
+
+        # Link elements
+        source.link(caps_v4l2src)
+        caps_v4l2src.link(vidconvsrc)
+        vidconvsrc.link(nvvidconvsrc)
+        nvvidconvsrc.link(caps_vidconvsrc)
+
+        sinkpad = streammux.get_request_pad("sink_0")
+        srcpad = caps_vidconvsrc.get_static_pad("src")
+        if not sinkpad or not srcpad:
+            raise RuntimeError("Failed to get pads for linking to streammux")
+        srcpad.link(sinkpad)
+
+        streammux.link(pgie)
+        pgie.link(tracker)
+        tracker.link(nvvidconv)
+        nvvidconv.link(nvosd)
+        nvosd.link(sink)
+
+        self.publisher_ = self.create_publisher(String, 'detections', 10)
+
+        osd_sink_pad = nvosd.get_static_pad("sink")
+        if osd_sink_pad:
+            osd_sink_pad.add_probe(Gst.PadProbeType.BUFFER, self.osd_sink_pad_buffer_probe, 0)
+
+        # Main loop
+        self.loop = GLib.MainLoop()
+        self.loop_thread = threading.Thread(target=self.loop.run)
+        self.loop_thread.start()
+
+        self.pipeline.set_state(Gst.State.PLAYING)
+        self.get_logger().info("DeepStream ROS node pipeline started.")
+
+    def osd_sink_pad_buffer_probe(self, pad, info, u_data):
+        buffer = info.get_buffer()
+        if not buffer:
+            return Gst.PadProbeReturn.OK
+
+        batch_meta = pyds.gst_buffer_get_nvds_batch_meta(hash(buffer))
+        l_frame = batch_meta.frame_meta_list
+
+        while l_frame:
+            frame_meta = pyds.NvDsFrameMeta.cast(l_frame.data)
+            objects = []
+            l_obj = frame_meta.obj_meta_list
+
+            while l_obj:
+                obj_meta = pyds.NvDsObjectMeta.cast(l_obj.data)
+                objects.append({
+                    "id": obj_meta.object_id,
+                    "class": obj_meta.obj_label,
+                    "bbox": [
+                        obj_meta.rect_params.left,
+                        obj_meta.rect_params.top,
+                        obj_meta.rect_params.width,
+                        obj_meta.rect_params.height
+                    ],
+                    "confidence": obj_meta.confidence,
+                    "tracker_id": obj_meta.object_id
+                })
+                try:
+                    l_obj = l_obj.next
+                except StopIteration:
+                    break
+
+            frame_data = {
+                "frame_number": frame_meta.frame_num,
+                "objects": objects
+            }
+            if rclpy.ok():
+                print(json.dumps(frame_data))
+                self.publisher_.publish(String(data=json.dumps(frame_data)))
+
+            try:
+                l_frame = l_frame.next
+            except StopIteration:
+                break
+
+        return Gst.PadProbeReturn.OK
+
+    def bus_call(self, bus, message):
+        msg_type = message.type
+        if msg_type == Gst.MessageType.EOS:
+            self.get_logger().info("End of stream")
+            self.pipeline.set_state(Gst.State.NULL)
+            self.loop.quit()
+        elif msg_type == Gst.MessageType.ERROR:
+            err, debug = message.parse_error()
+            self.get_logger().error(f"Error: {err}, Debug info: {debug}")
+            self.pipeline.set_state(Gst.State.NULL)
+            self.loop.quit()
+        return True
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = DeepStreamROSNode()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        node.get_logger().info("KeyboardInterrupt received. Shutting down...")
+    finally:
+        node.loop.quit()
+        node.loop_thread.join()
+        node.pipeline.set_state(Gst.State.NULL)
+        node.destroy_node()
+        rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()

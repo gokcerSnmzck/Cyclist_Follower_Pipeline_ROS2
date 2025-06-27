@@ -1,0 +1,44 @@
+[INFO] [1750982332.134665232] [deepstream_json_node]: Visualization DISABLED.
+gstnvtracker: Loading low-level lib at /opt/nvidia/deepstream/deepstream/lib/libnvds_nvmultiobjecttracker.so
+[NvTrackerParams::getConfigRoot()] !!![WARNING] File doesn't exist. Will go ahead with default values
+[NvMultiObjectTracker] Initialized
+0:00:07.644069003 [34m269793[00m 0x5f33d9b77c20 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:682:gst_nvinfer_logger:<primary-inference>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2095> [UID = 1]: deserialized trt engine from :/home/gokcer/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:07.674791879 [34m269793[00m 0x5f33d9b77c20 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:682:gst_nvinfer_logger:<primary-inference>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2198> [UID = 1]: Use deserialized engine model: /home/gokcer/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:07.677560145 [34m269793[00m 0x5f33d9b77c20 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary-inference>[00m [UID 1]: Load new model:/home/gokcer/DeepStream-Yolo/config_infer_primary_yolo11.txt sucessfully
+[INFO] [1750982339.630235762] [deepstream_json_node]: DeepStream ROS node pipeline started.
+Terminated
+WARNING: [TRT]: The getMaxBatchSize() function should not be used with an engine built from a network created with NetworkDefinitionCreationFlag::kEXPLICIT_BATCH flag. This function will always return 1.
+INFO: ../nvdsinfer/nvdsinfer_model_builder.cpp:612 [Implicit Engine Info]: layers num: 2
+0   INPUT  kFLOAT input           3x640x640       
+1   OUTPUT kFLOAT output          8400x6          
+
+[NvMultiObjectTracker] De-initialized
+Traceback (most recent call last):
+  File "/home/gokcer/CAN_Combined_Pipeline/build/deepstream_ros_node_json/deepstream_ros_node_json/deepstream_ros_node_json.py", line 233, in main
+    rclpy.spin(node)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 226, in spin
+    executor.spin_once()
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 751, in spin_once
+    self._spin_once_impl(timeout_sec)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 740, in _spin_once_impl
+    handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 723, in wait_for_ready_callbacks
+    return next(self._cb_iter)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 624, in _wait_for_ready_callbacks
+    raise ExternalShutdownException()
+rclpy.executors.ExternalShutdownException
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gokcer/CAN_Combined_Pipeline/install/deepstream_ros_node_json/lib/deepstream_ros_node_json/deepstream_ros_node_json", line 33, in <module>
+    sys.exit(load_entry_point('deepstream-ros-node-json', 'console_scripts', 'deepstream_ros_node_json')())
+  File "/home/gokcer/CAN_Combined_Pipeline/build/deepstream_ros_node_json/deepstream_ros_node_json/deepstream_ros_node_json.py", line 239, in main
+    rclpy.shutdown()
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 130, in shutdown
+    _shutdown(context=context)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/utilities.py", line 58, in shutdown
+    return context.shutdown()
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/context.py", line 102, in shutdown
+    self.__context.shutdown()
+rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:241
