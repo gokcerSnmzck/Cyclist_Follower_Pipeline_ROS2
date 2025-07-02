@@ -17,7 +17,7 @@ from gi.repository import Gst
 class DeepStreamROSNode(Node):
     def __init__(self):
         super().__init__('deepstream_json_node')
-        self.declare_parameter('enable_visualization', False)
+        self.declare_parameter('enable_visualization', True)
         self.enable_visualization = self.get_parameter('enable_visualization').get_parameter_value().bool_value
         Gst.init(None)
 

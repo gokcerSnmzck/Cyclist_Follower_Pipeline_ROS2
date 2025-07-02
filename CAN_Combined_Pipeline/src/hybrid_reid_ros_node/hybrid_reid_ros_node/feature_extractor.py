@@ -13,7 +13,7 @@ from PIL import Image
 from torchvision.transforms import transforms
 from torchvision.models import ResNet50_Weights
 
-from hybrid_reid_ros_node.profiling import profile_function
+from .profiling import profile_function
 
 class FeatureExtractor:
     def __init__(self, model_path=None, device='cuda' if torch.cuda.is_available() else 'cpu'):

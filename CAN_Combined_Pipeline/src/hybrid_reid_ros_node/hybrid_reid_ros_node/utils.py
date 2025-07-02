@@ -5,7 +5,7 @@ Utility functions for object tracking and visualization
 import os
 import cv2
 import signal
-from hybrid_reid_ros_node.profiling import display_profiling_stats
+from .profiling import display_profiling_stats
 
 def resize_for_display(image, max_width=1280, max_height=720):
     """
@@ -118,7 +118,7 @@ def calculate_max_age_from_fps(fps, target_occlusion_seconds=10):
     print(f"Setting DeepSORT max_age to {final_max_age} frames for ~{target_occlusion_seconds}s occlusion at {fps:.2f} FPS.")
     return final_max_age
 
-def create_mock_detector(cap):
+def create_mock_detector():
     """
     Create a mock detector that simulates detections (for testing without a real detector)
     
@@ -133,7 +133,8 @@ def create_mock_detector(cap):
         Mock object detector that simulates detections
         """
         height, width = frame.shape[:2]
-        frame_count = int(cap.get(cv2.CAP_PROP_POS_FRAMES))
+        frame_count = getattr(mock_detect, "frame_count", 0)
+        setattr(mock_detect, "frame_count", frame_count + 1)
         
         detections = []
         

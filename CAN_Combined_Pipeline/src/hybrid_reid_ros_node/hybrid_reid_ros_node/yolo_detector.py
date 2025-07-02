@@ -6,10 +6,10 @@ import os
 import cv2
 import numpy as np
 import time
-from hybrid_reid_ros_node.profiling import profile_function
+from .profiling import profile_function
 
 class YOLODetector:
-    def __init__(self, model_path=None, conf_threshold=0.25, device='cpu'):
+    def __init__(self, model_path=None, conf_threshold=0.25, device='cpu', use_tensorrt=False):
         """
         Initialize YOLO detector specialized for human detection
         
@@ -17,29 +17,75 @@ class YOLODetector:
             model_path: Path to YOLO model
             conf_threshold: Confidence threshold
             device: Computing device ('cuda' or 'cpu')
+            use_tensorrt: Whether to use TensorRT for acceleration (requires CUDA device)
         """
         self.device = device
         self.conf_threshold = conf_threshold
         self.person_class_id = 0  # Human class ID in COCO dataset
+        self.use_tensorrt = use_tensorrt
         
         try:
             from ultralytics import YOLO
             
-            # Change the default model to a YOLOv8 segmentation model
+            # If TensorRT is requested but device is not CUDA, warn and fall back
+            if self.use_tensorrt and self.device != 'cuda':
+                print("Warning: TensorRT acceleration requires CUDA device. Falling back to standard inference.")
+                self.use_tensorrt = False
+                
+            # Handle model loading based on TensorRT preference
             if model_path is None:
-                # User should ensure 'yolov8n-seg.pt' or their desired segmentation model is available
-                print("Attempting to load default segmentation model: yolov8n-seg.pt")
-                self.model = YOLO("yolov8n-seg.pt").to(self.device)
+                # Default model path for standard or TensorRT
+                if self.use_tensorrt:
+                    # Check if TensorRT engine exists for default model
+                    engine_path = "yolov8n-seg.engine"
+                    if os.path.exists(engine_path):
+                        print(f"Loading TensorRT engine: {engine_path}")
+                        self.model = YOLO(engine_path)
+                    else:
+                        print(f"TensorRT engine not found at {engine_path}. Loading standard model and exporting to TensorRT...")
+                        base_model = YOLO("yolov8n.pt").to(self.device)
+                        # Export to TensorRT
+                        base_model.export(format="engine")
+                        # Load the exported TensorRT model
+                        self.model = YOLO(engine_path)
+                else:
+                    # Standard model loading
+                    print("Attempting to load default segmentation model: yolov8n-seg.pt")
+                    self.model = YOLO("yolov8n-seg.pt").to(self.device)
             else:
-                print(f"Loading specified model: {model_path}")
-                self.model = YOLO(model_path).to(self.device)
+                # Custom model path
+                if self.use_tensorrt:
+                    # Check if this is already a TensorRT engine
+                    if model_path.endswith('.engine'):
+                        print(f"Loading TensorRT engine: {model_path}")
+                        self.model = YOLO(model_path)
+                    else:
+                        # Check if corresponding engine exists
+                        engine_path = os.path.splitext(model_path)[0] + ".engine"
+                        if os.path.exists(engine_path):
+                            print(f"Loading TensorRT engine: {engine_path}")
+                            self.model = YOLO(engine_path)
+                        else:
+                            print(f"TensorRT engine not found. Loading standard model and exporting to TensorRT...")
+                            base_model = YOLO(model_path).to(self.device)
+                            # Export to TensorRT
+                            base_model.export(format="engine")
+                            # Load the exported engine
+                            self.model = YOLO(engine_path)
+                else:
+                    # Standard model loading
+                    print(f"Loading specified model: {model_path}")
+                    self.model = YOLO(model_path).to(self.device)
                 
             self.using_ultralytics = True
             # Check if the loaded model has segmentation capabilities
             if not hasattr(self.model, 'predict') or not callable(getattr(self.model, 'predict')) or not any(hasattr(res, 'masks') for res in self.model(np.zeros((224,224,3), dtype=np.uint8))):
-                 print(f"Warning: Model {model_path or 'yolo11n-seg.pt'} might not be a segmentation model or is not behaving as expected.")
+                 print(f"Warning: Model {model_path or 'yolov8n-seg.pt'} might not be a segmentation model or is not behaving as expected.")
             else:
-                 print(f"Using YOLO segmentation model from ultralytics (human detection only)")
+                 if self.use_tensorrt:
+                     print(f"Using YOLO segmentation model with TensorRT acceleration (human detection only)")
+                 else:
+                     print(f"Using YOLO segmentation model from ultralytics (human detection only)")
 
         except ImportError:
             print("Ultralytics YOLO not available, using OpenCV DNN module")
@@ -59,7 +105,6 @@ class YOLODetector:
                 self.classes = f.read().strip().split("\n")
             
             print("Warning: Fallback mode does not support YOLOv11")
-    
     @profile_function
     def detect(self, frame):
         """
@@ -74,7 +119,12 @@ class YOLODetector:
         inference_start = time.time()
         
         if self.using_ultralytics:
-            results = self.model(frame, device=self.device, classes=[self.person_class_id], verbose=False) # Added verbose=False
+            # When using TensorRT, the device is already configured in the engine
+            # so we don't need to pass it explicitly
+            if self.use_tensorrt:
+                results = self.model(frame, classes=[self.person_class_id], verbose=False)
+            else:
+                results = self.model(frame, device=self.device, classes=[self.person_class_id], verbose=False)
             
             inference_time = time.time() - inference_start
             # print(f"YOLO model inference: {inference_time*1000:.1f}ms") # Optional
@@ -146,3 +196,141 @@ class YOLODetector:
                         detections.append([x1, y1, x2, y2, confidence, class_id, None]) # Add None for mask
             
             return detections
+    
+    def export_to_tensorrt(self, model_path=None, save_path=None):
+        """
+        Export the current or specified YOLO model to TensorRT format
+        
+        Args:
+            model_path: Path to the model to export (if None, uses the current model)
+            save_path: Path to save the exported model (if None, creates a .engine file next to the model)
+            
+        Returns:
+            Path to the exported TensorRT engine file or None if export failed
+        """
+        if not self.using_ultralytics:
+            print("TensorRT export requires Ultralytics YOLO.")
+            return None
+            
+        try:
+            from ultralytics import YOLO
+            
+            # Check if CUDA is available (required for TensorRT)
+            if self.device != 'cuda':
+                print("Warning: TensorRT export requires CUDA. Current device is:", self.device)
+                return None
+                
+            # Determine which model to export
+            if model_path is None:
+                # Export the currently loaded model
+                if hasattr(self.model, 'export'):
+                    source_model = self.model
+                    # If save_path is not specified, create one based on the model's ckpt path
+                    if save_path is None and hasattr(self.model, 'ckpt_path'):
+                        model_name = os.path.basename(self.model.ckpt_path)
+                        base_name = os.path.splitext(model_name)[0]
+                        save_path = f"{base_name}.engine"
+                else:
+                    print("Current model doesn't support export.")
+                    return None
+            else:
+                # Load the specified model
+                print(f"Loading model for export: {model_path}")
+                source_model = YOLO(model_path)
+                
+                # If save_path is not specified, create one based on the input model path
+                if save_path is None:
+                    base_name = os.path.splitext(model_path)[0]
+                    save_path = f"{base_name}.engine"
+            
+            # Perform the export
+            print(f"Exporting model to TensorRT format at: {save_path}")
+            result = source_model.export(format="engine", device=self.device)
+            
+            print(f"Export completed. Engine file created at: {result}")
+            return result
+            
+        except Exception as e:
+            print(f"Error during TensorRT export: {e}")
+            return None
+        
+    def toggle_tensorrt(self, use_tensorrt=None):
+        """
+        Toggle or set TensorRT acceleration mode
+        
+        Args:
+            use_tensorrt: If provided, sets TensorRT mode to this value. If None, toggles current state.
+            
+        Returns:
+            Current TensorRT state after toggling/setting
+        """
+        if not self.using_ultralytics:
+            print("TensorRT acceleration requires Ultralytics YOLO.")
+            return False
+            
+        # Determine the new TensorRT state
+        new_tensorrt_state = not self.use_tensorrt if use_tensorrt is None else use_tensorrt
+        
+        # If no change needed, return current state
+        if new_tensorrt_state == self.use_tensorrt:
+            print(f"TensorRT acceleration is already {'enabled' if self.use_tensorrt else 'disabled'}")
+            return self.use_tensorrt
+            
+        # Check if CUDA is available for TensorRT
+        if new_tensorrt_state and self.device != 'cuda':
+            print("Warning: TensorRT acceleration requires CUDA device. Cannot enable.")
+            return False
+            
+        try:
+            from ultralytics import YOLO
+            
+            # Store the current model path if possible
+            current_model_path = None
+            if hasattr(self.model, 'ckpt_path'):
+                current_model_path = self.model.ckpt_path
+            
+            if new_tensorrt_state:
+                # Switching to TensorRT mode
+                if current_model_path:
+                    # Check if engine already exists
+                    engine_path = os.path.splitext(current_model_path)[0] + ".engine"
+                    if os.path.exists(engine_path):
+                        print(f"Loading existing TensorRT engine: {engine_path}")
+                        self.model = YOLO(engine_path)
+                        self.use_tensorrt = True
+                    else:
+                        # Export and load TensorRT model
+                        print(f"Exporting model to TensorRT format: {current_model_path}")
+                        self.model.export(format="engine", device=self.device)
+                        self.model = YOLO(engine_path)
+                        self.use_tensorrt = True
+                else:
+                    print("Cannot enable TensorRT: Unable to determine current model path")
+                    return False
+            else:
+                # Switching back to standard mode
+                if current_model_path:
+                    # Check if current model is an engine
+                    if current_model_path.endswith('.engine'):
+                        # Load the original model
+                        original_model_path = os.path.splitext(current_model_path)[0] + ".pt"
+                        if os.path.exists(original_model_path):
+                            print(f"Loading standard model: {original_model_path}")
+                            self.model = YOLO(original_model_path).to(self.device)
+                            self.use_tensorrt = False
+                        else:
+                            print(f"Cannot find original model: {original_model_path}")
+                            return self.use_tensorrt
+                    else:
+                        # Already using a standard model
+                        self.use_tensorrt = False
+                else:
+                    print("Cannot disable TensorRT: Unable to determine current model path")
+                    return self.use_tensorrt
+                    
+            print(f"TensorRT acceleration is now {'enabled' if self.use_tensorrt else 'disabled'}")
+            return self.use_tensorrt
+            
+        except Exception as e:
+            print(f"Error toggling TensorRT mode: {e}")
+            return self.use_tensorrt

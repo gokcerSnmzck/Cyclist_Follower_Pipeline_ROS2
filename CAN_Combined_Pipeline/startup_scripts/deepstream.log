@@ -1,11 +1,11 @@
-[INFO] [1750982332.134665232] [deepstream_json_node]: Visualization DISABLED.
+[INFO] [1750983048.164015389] [deepstream_json_node]: Visualization DISABLED.
 gstnvtracker: Loading low-level lib at /opt/nvidia/deepstream/deepstream/lib/libnvds_nvmultiobjecttracker.so
 [NvTrackerParams::getConfigRoot()] !!![WARNING] File doesn't exist. Will go ahead with default values
 [NvMultiObjectTracker] Initialized
-0:00:07.644069003 [34m269793[00m 0x5f33d9b77c20 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:682:gst_nvinfer_logger:<primary-inference>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2095> [UID = 1]: deserialized trt engine from :/home/gokcer/DeepStream-Yolo/model_b1_gpu0_fp32.engine
-0:00:07.674791879 [34m269793[00m 0x5f33d9b77c20 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:682:gst_nvinfer_logger:<primary-inference>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2198> [UID = 1]: Use deserialized engine model: /home/gokcer/DeepStream-Yolo/model_b1_gpu0_fp32.engine
-0:00:07.677560145 [34m269793[00m 0x5f33d9b77c20 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary-inference>[00m [UID 1]: Load new model:/home/gokcer/DeepStream-Yolo/config_infer_primary_yolo11.txt sucessfully
-[INFO] [1750982339.630235762] [deepstream_json_node]: DeepStream ROS node pipeline started.
+0:00:08.290649397 [36m276317[00m 0x583162ea44d0 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:682:gst_nvinfer_logger:<primary-inference>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::deserializeEngineAndBackend() <nvdsinfer_context_impl.cpp:2095> [UID = 1]: deserialized trt engine from :/home/gokcer/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:08.325740807 [36m276317[00m 0x583162ea44d0 [36mINFO   [00m [00m             nvinfer gstnvinfer.cpp:682:gst_nvinfer_logger:<primary-inference>[00m NvDsInferContext[UID 1]: Info from NvDsInferContextImpl::generateBackendContext() <nvdsinfer_context_impl.cpp:2198> [UID = 1]: Use deserialized engine model: /home/gokcer/DeepStream-Yolo/model_b1_gpu0_fp32.engine
+0:00:08.334872071 [36m276317[00m 0x583162ea44d0 [36mINFO   [00m [00m             nvinfer gstnvinfer_impl.cpp:343:notifyLoadModelStatus:<primary-inference>[00m [UID 1]: Load new model:/home/gokcer/DeepStream-Yolo/config_infer_primary_yolo11.txt sucessfully
+[INFO] [1750983056.310028650] [deepstream_json_node]: DeepStream ROS node pipeline started.
 Terminated
 WARNING: [TRT]: The getMaxBatchSize() function should not be used with an engine built from a network created with NetworkDefinitionCreationFlag::kEXPLICIT_BATCH flag. This function will always return 1.
 INFO: ../nvdsinfer/nvdsinfer_model_builder.cpp:612 [Implicit Engine Info]: layers num: 2

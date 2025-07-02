@@ -60,9 +60,11 @@ class FusionNode(Node):
 
         self.get_logger().info(f"ZED object count: {len(msg.objects)}")
 
+        received_label_ids = [zed_obj.label_id for zed_obj in msg.objects]
+
         for zed_obj in msg.objects:
             if self.flag_initialized and self.gesture_detection_enabled:
-                if zed_obj.label_id != self.former_label_id:
+                if self.former_label_id not in received_label_ids:
                     self.get_logger().info(f"ZED label change --- Re-focusing is needed !")
                     self.reset_pub.publish(Empty())
                     self.selection_received = False

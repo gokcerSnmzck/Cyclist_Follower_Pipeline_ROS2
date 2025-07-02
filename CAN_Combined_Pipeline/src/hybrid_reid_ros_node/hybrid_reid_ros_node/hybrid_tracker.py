@@ -9,15 +9,15 @@ from collections import deque, defaultdict
 from PIL import Image
 import cv2
 
-from hybrid_reid_ros_node.profiling import profile_function
-from hybrid_reid_ros_node.feature_extractor import FeatureExtractor, compute_cosine_distance_gpu
-from hybrid_reid_ros_node.numba_optimizations import NUMBA_AVAILABLE, calculate_iou, calculate_iou_numba, calculate_spatial_distance_numba
+from .profiling import profile_function
+from .feature_extractor import FeatureExtractor, compute_cosine_distance_gpu
+from .numba_optimizations import NUMBA_AVAILABLE, calculate_iou, calculate_iou_numba, calculate_spatial_distance_numba
 
 # Import Deep SORT components
 from deep_sort_realtime.deepsort_tracker import DeepSort
 from deep_sort_realtime.deep_sort import nn_matching
 from deep_sort_realtime.deep_sort.detection import Detection
-from hybrid_reid_ros_node.utils import convert_bbox_format  # Added import for convert_bbox_format
+from .utils import convert_bbox_format  # Added import for convert_bbox_format
 
 class HybridTracker:
     def __init__(self, max_cosine_distance=0.4, nn_budget=None, max_age=30, min_confidence=0.3,
@@ -238,17 +238,7 @@ class HybridTracker:
                 feature = np.zeros(self.feature_dim, dtype=np.float32)
             
             # Create detection tuple in the format expected by deep_sort_realtime
-            # deepsort_detection = ([x1, y1, w, h], confidence, feature)
-            # deepsort_detections.append(deepsort_detection)
-            # DeepSORT allows optional metadata, so we include class_id
-            #deepsort_detection = Detection(
-            #    tlwh=[x1, y1, w, h],
-            #    confidence=confidence,
-            #    feature=feature,
-            #    class_id=int(class_id)  # <- This is new
-            #)
-            deepsort_detection = ([x1, y1, w, h], confidence, feature, int(class_id))
-
+            deepsort_detection = ([x1, y1, w, h], confidence, feature)
             deepsort_detections.append(deepsort_detection)
 
         # Update DeepSORT tracker with correctly formatted detections
@@ -403,9 +393,8 @@ class HybridTracker:
                     self.primary_object_bbox = bbox_ltrb
 
             # Get class ID from track
-            # track_class_id = track_object.get_det_class() if hasattr(track_object, 'get_det_class') else \
-            #                 (track_object.det_class if hasattr(track_object, 'det_class') else 0)
-            track_class_id = getattr(track_object, "det_class", 0)
+            track_class_id = track_object.get_det_class() if hasattr(track_object, 'get_det_class') else \
+                            (track_object.det_class if hasattr(track_object, 'det_class') else 0)
 
             # Store current track and feature for batch gallery update
             track_data = [*bbox_ltrb, consistent_id, track_class_id]
