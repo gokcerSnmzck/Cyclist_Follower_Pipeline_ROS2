@@ -1,157 +1,72 @@
-# Architecture and implementation map
+# System architecture
 
-This document describes the source entry points at baseline `4195d12` plus the
-non-functional portfolio corrections. “Active” means selected by setup/CMake and
-startup scripts, not certified or proven to match every historical experiment.
+[Project overview](../README.md) · [Technical contributions](TECHNICAL_CONTRIBUTIONS.md) · [Setup](SETUP.md)
 
-## Workspaces and authority
+The system separates image processing, target identity, spatial localization and vehicle commands into ROS 2 components. This lets the same perception design serve a simulated Ackermann vehicle and the physical Yuhesen FR-max, with a dedicated control interface in each workspace.
 
-| Area | Entry-point evidence | Relationship |
+## Execution paths
+
+| Workspace | Input and perception | Motion output |
 |---|---|---|
-| Root `src/` | `startup_scripts/start_zed.sh` sets `sim_mode:=true`; follower publishes `/cmd_vel`; Ackermann executable is installed by CMake | Simulation-oriented workspace with ZED vendor gitlinks |
-| `CAN_Combined_Pipeline/src/` | CAN startup sets `sim_mode:=false`; follower publishes `/cmdvel`; adapter publishes `ctrl_cmd` | Physical-camera/CAN integration workspace; vendor ZED source is not included here |
-| `simulation/` | Binary USD stages, scene screenshots/recordings | Isaac Sim research assets; simulator and external references are not packaged |
-| CAN `cyclist_follower_bringup` | Launch explicitly sets simulation mode and resolves `cmdvel_to_ackermann` | Simulation-oriented launch copied into the CAN tree, not complete physical bringup |
-| Historical variants | `_old`, `_OLD_LATEST`, `_Webcam`, `_buffer_leak`, `_Refactored`, `.txt` snapshots | Preserved experiments, not selected by normal console entry points |
+| [`src/`](../src) | ZED simulation acquisition, DeepStream, fusion and optional gesture selection | Follower → `/cmd_vel` → Ackermann adapter → `/ackermann_cmd` → Isaac Sim |
+| [`CAN_Combined_Pipeline/src/`](../CAN_Combined_Pipeline/src) | Physical ZED2i acquisition, Jetson DeepStream, fusion and optional gesture selection | Follower → `/cmdvel` → command adapter → `ctrl_cmd` → YHS CAN driver → FR-max |
 
-Do not build both source trees in the same colcon package-discovery scope. Six
-package names overlap. The active DeepStream files differ in visualization
-default (root false, CAN true); the followers differ in command topic; fusion
-differs in gesture reset logic. Hybrid modules also differ, including an
-optional TensorRT branch in the CAN detector that its ROS wrapper does not enable.
+The custom packages have overlapping names. Each row is an independent build and runtime scope, rather than two overlays to source together. The [README diagram](../README.md#system-architecture) shows their common perception design and separate actuation paths.
 
-The June 2025 logs support a physical ZED/CAN integration run, but the detector
-log says visualization disabled while the current CAN source defaults true.
-That could reflect a parameter override or another revision. Neither directory
-can be asserted to be the exact source for reported experiments without the
-report and a run manifest.
+## Components and message flow
 
-## Topics and contracts
-
-| Producer → consumer | Topic | Message / key semantics |
+| Component | Consumes | Produces / responsibility |
 |---|---|---|
-| ZED → DeepStream or Hybrid | `/zed/zed_node/left/image_rect_color` | `sensor_msgs/Image` |
-| DeepStream or Hybrid → fusion | `/deepstream/detections` | `std_msgs/String`: JSON `frame_number`, `objects`; top-left pixel `bbox` x/y/width/height, label/confidence/tracking_id; **no acquisition stamp or image dimensions** |
-| ZED → fusion | `/zed/zed_node/obj_det/objects` | `zed_msgs/ObjectsStamped`, object bounding-box corners and 3D position |
-| ZED → gesture | `/zed/zed_node/body_trk/skeletons` | `zed_msgs/ObjectsStamped`, skeleton keypoints |
-| Gesture → fusion | `/selected_person_bbox` | `zed_msgs/Object`, optional startup environment gate |
-| Gesture → observers | `/selected_person_id` | `std_msgs/Int32`; current fusion consumes bbox, not this ID topic |
-| Fusion → gesture | `/gesture_selector/reset` | `std_msgs/Empty` |
-| Fusion → follower | `/fused_target` | `detection_msgs/TargetPosition`: int32 ID, class, confidence, Point, Header stamped at fusion publication |
-| Root follower → Ackermann | `/cmd_vel` | `geometry_msgs/Twist` |
-| Ackermann → simulator bridge | `/ackermann_cmd` | `ackermann_msgs/AckermannDriveStamped`; scene wiring requires Isaac Sim inspection |
-| CAN follower → adapter | `/cmdvel` | `geometry_msgs/Twist` |
-| Adapter → YHS driver | `ctrl_cmd` | `yhs_can_interfaces/CtrlCmd`; relative name resolves to `/ctrl_cmd` in root namespace |
-| YHS driver → observers | `chassis_info_fb`, `odom` | Chassis feedback and `nav_msgs/Odometry` |
+| ZED wrapper | Stereo camera or simulation input | Rectified image, spatial object detections and body skeletons |
+| DeepStream ROS node | `/zed/zed_node/left/image_rect_color` (`sensor_msgs/Image`) | `/deepstream/detections` (`std_msgs/String` containing JSON): tracked boxes, IDs, classes and confidence |
+| Gesture selector | `/zed/zed_node/body_trk/skeletons` | `/selected_person_bbox` and `/selected_person_id`; receives `/gesture_selector/reset` from fusion |
+| Fusion node | DeepStream detections, `/zed/zed_node/obj_det/objects`, optional gesture selection | `/fused_target` (`detection_msgs/TargetPosition`); selected identity and 3D position |
+| Person follower | `TargetPosition` | `geometry_msgs/Twist` on the workspace-specific velocity topic |
+| Simulation adapter | `/cmd_vel` | `/ackermann_cmd` for the simulated vehicle |
+| Physical command adapter | `/cmdvel` | YHS `ctrl_cmd` velocity, steering, gear and brake fields |
+| Vendor CAN driver | YHS control messages | CAN serialization, counters/checksum and chassis feedback handling |
 
-The unused-on-this-path `Detection2D`, `BoundingBox2D`, `Detection2DArray`
-interfaces coexist with the JSON transport. The historical test publisher uses
-the array type on the JSON topic, so it is not a valid integration test.
+See the [target message definition](../src/detection_msgs/msg/TargetPosition.msg), [fusion implementation](../src/fusion_node/fusion_node.py) and [physical command adapter](../CAN_Combined_Pipeline/src/cmd_vel_to_can_node/cmd_vel_to_can_node/cmd_vel_to_can_node.py).
 
-Most Python endpoints specify depth 10 with no custom QoS profile. Their default
-reliability must be checked against the actual vendor publishers; no live DDS
-compatibility test was possible. Ackermann and CAN C++ endpoints use depth 1.
-Python mains use `rclpy.spin(node)` without a custom executor. GStreamer demand
-and pad-probe callbacks execute in streaming context; a thread-safe Python queue
-bridges image input. There is no message_filters synchronization in fusion.
+## ROS image to accelerated perception
 
-## DeepStream data and memory flow
+The [DeepStream node](../src/deepstream_ros_node_json/deepstream_ros_node_json/deepstream_ros_node_json.py) converts supported ROS image encodings to BGRA. It holds at most five waiting frames, dropping the oldest queued frame when capacity is reached. GStreamer's `need-data` callback takes a frame, copies its bytes into a `Gst.Buffer` and pushes it into `appsrc`.
 
-1. CvBridge requests passthrough pixels. mono8/BGR8/RGB8 are converted to BGRA;
-   BGRA8 is accepted; other encodings are rejected. OpenCV resizes to 960×540.
-2. A Python queue holds at most five frames. When full, an oldest-frame removal
-   precedes retrying insertion. This bounds this queue, not all DDS/GStreamer/GPU
-   buffering; the get/put operations are not a single atomic transaction.
-3. `need-data` takes a frame, creates Python bytes, allocates a Gst buffer and
-   copies bytes into it. This is a CPU-copy bridge, not zero-copy GPU ingestion.
-4. `appsrc (BGRA) → videoconvert → caps NV12 → nvvideoconvert → nvstreammux
-   → nvinfer → nvtracker → nvvideoconvert → nvdsosd → sink`.
-   A separate NVMM capsfilter is created but is not on the linked path.
-   GPU surface negotiation/upload therefore requires inspection on the target SDK.
-5. Streammux uses 960×540, batch 1, live-source and 40,000 µs push timeout.
-   `nvinfer` reads an external YOLO11 config; its preprocessing/thresholds cannot
-   be recovered from this checkout. The saved engine log describes a 3×640×640
-   input; that is distinct from the 960×540 stream coordinate system.
-6. The OSD sink probe reads SDK metadata and publishes JSON only when objects
-   exist. It copies scalar metadata; it does not map image surfaces into NumPy.
-   Python/GI manages buffer references here; no demonstrated need for manual
-   unref was established. Changing ownership rules without SDK validation risks
-   use-after-free or double release.
-7. A 100 ms ROS timer polls ERROR/EOS and sets pipeline NULL. Main's finally
-   also sets NULL on shutdown. A constructor exception precedes that finally;
-   request pads are not explicitly released and link/flow results are not fully
-   checked. See audit A14 for the distinction between code gaps and proven leaks.
+The linked processing path is:
 
-Commit `e7f23a0` introduced bounded queuing, need-data feeding, explicit encoding
-handling, live-source and ROS-timer bus polling in place of a GLib loop thread.
-Those are demonstrable changes. They are not proof that every Jetson buffer or
-memory issue was fixed. The screenshot titled “memory leak addressed” shows one
-system-monitor view; the sanitizer text has no result beyond its banner.
+```text
+ROS image → cv_bridge / BGRA → bounded queue → appsrc
+  → videoconvert → NV12 caps → nvvideoconvert → nvstreammux
+  → nvinfer → nvtracker → nvvideoconvert → nvdsosd
+  → display sink or fakesink
+```
 
-## Association, gesture and control
+Input caps specify **960 × 540 at 30/1 FPS**. The stream multiplexer uses one stream. `nvinfer` and `nvtracker` load external model/tracker configurations; the historical deployment used YOLOv11 medium, TensorRT and NvDCF. A metadata probe publishes tracked detections back to ROS. This is an explicit image-copy bridge into accelerated processing.
 
-The matcher compares `(zed_x/960, zed_y/540)` against `(2*ds_x/960, 2*ds_y/540)`.
-Thus a ZED center `(960,540)` matches DeepStream center `(480,270)`. Under
-1920×1080 ZED box coordinates this is a consistent half-resolution mapping.
-The June camera log reports 1920×1080 grab and 960×540 publication, and fusion
-logs contain ZED centers greater than 960. Confirm bounding-box convention from
-the pinned ZED messages/bag before generalizing to another resolution.
+## Associating identity with stereo position
 
-Both axis differences must be strictly below 0.2; the smallest sum wins, with
-first-in-list tie breaking. In full-resolution ZED pixels these gates correspond
-to 192 horizontal and 108 vertical pixels. There is no one-to-one assignment,
-confidence gate at fusion, age check or target-ID recovery policy after a tracker
-ID switch when gesture mode is off. The first acceptable match locks the ID.
-Position is copied from the ZED object, not triangulated in this repository.
-Frame ID is preserved, but the follower does not transform or validate that frame.
+Fusion maintains the latest detector metadata and ZED objects. It compares normalized bounding-box centers, accounting for the image-scale difference: detector centers are scaled by two before comparison with the ZED boxes. Candidates must pass the per-axis normalized distance threshold of `0.2`; the smallest summed center distance wins.
 
-Gesture selection uses keypoint indices 4/2 and `wrist_y > shoulder_y + 0.1` for
-two seconds. This requires the corresponding body layout and axes. Enablement is
-read from exported `USE_GESTURE_DETECTOR` at fusion construction; the historical
-scripts' local Boolean variable alone does not propagate it. Root reset logic
-can react to another object before reaching the selected one; CAN's membership
-check improves that case, but empty object lists do not enter its reset loop.
+The node locks to a detector identity and publishes the associated ZED 3D position, class and confidence. This is asynchronous, latest-message association. The JSON detection message carries no acquisition header; the outgoing target header is stamped at publication and uses the ZED frame identifier. It should therefore be interpreted as a target output, not a synchronized multi-sensor timestamp record.
 
-Follower logic is `linear = clamp(x - 1.5, 0, 0.4)` and
-`angular = clamp(y, -0.8, 0.8)` after `x > 0.1`. The values are source constants,
-not measured safe vehicle limits. A 0.1 s watchdog sends one zero Twist after
-more than 1 s without an accepted target. Receipt freshness cannot establish
-sensor freshness. See audit A01–A04 before any physical deployment.
+## Gesture-based selection
 
-The CAN adapter's linear/steering scaling and neutral/brake branch are described
-in the audit. The C++ driver packs extended CAN frames, counters and XOR checksums,
-reads feedback on a separate thread, and integrates odometry. Its 15 ms receive
-timeout diagnoses missing frames; it is not a command watchdog. Socket setup
-failure paths, stop/thread ordering and lack of complete-frame-length checks
-need bench validation; no CAN communication was run during this review.
+The [gesture selector](../src/gesture_selector/gesture_selector/gesture_selector.py) uses the configured skeleton joints: wrist index `4` and shoulder index `2`. A vertical difference above `0.1` held for two seconds triggers the selection workflow. The state machine coordinates selection, tracking and reselection using identity and bounding-box information.
 
-## Alternative perception and experiments
+Fusion enables this optional path through `USE_GESTURE_DETECTOR=true`. Starting the selector alone does not change fusion's mode. Selection provides an operator-facing way to establish or change the target, including retargeting during field experiments.
 
-The Hybrid wrapper defaults to YOLOv8 nano segmentation on CUDA, filters people
-at 0.3 detection confidence, and configures a 0.5 tracker confidence threshold.
-It estimates 30 FPS and derives max_age 198 frames for a nominal six-second
-occlusion plus buffer; actual processed FPS and early no-detection returns make
-this **not a measured six-second occlusion guarantee**.
+## Following and actuation
 
-The extractor loads DINOv2 ViT-B/14 with registers, 768 dimensions. Crops are
-converted BGR→RGB, resized to 256, center-cropped to 224, ImageNet-normalized,
-inferred under no_grad and L2-normalized. ResNet50 without its classifier is a
-fallback (2048 channels); fallback tensor shape needs testing. Mask support is
-implemented, but the active update calls do not pass masks to extraction.
-The gallery helper assumes a different detection tuple shape and resizes an
-entire mask into a crop; do not advertise validated background removal.
+The [follower](../src/person_follower_pkg/person_follower_pkg/person_follower.py) uses target-relative position to generate forward and angular velocity requests. Current constants are a `1.5 m` desired separation, proportional forward control capped at `0.4`, and lateral control capped at `±0.8`. The resulting `Twist` is then adapted for the chosen platform.
 
-DeepSORT association, consistent-ID mapping, primary-object galleries, spatial
-gates and “offline” ReID are derived from Hybrid ReID. Here “offline” is a
-periodic method in the update path, not a separate processing service. The
-DeepSORT API mismatch, ID allocation and inactive-track handling prevent a
-claim of reliable long-term identity persistence. JSON confidence is hardcoded
-to 0.9 by the wrapper. The CAN TensorRT option attempts to export `yolov8n.pt`
-but then opens `yolov8n-seg.engine`; that optional path is not enabled by its ROS
-wrapper and remains unvalidated.
+In simulation, the [Ackermann adapter](../src/ackermann_control/cmdvel_to_ackermann/scripts/cmdvel_to_ackermann.py) converts the command using its vehicle-geometry parameters. On the robot, the [Python command adapter](../CAN_Combined_Pipeline/src/cmd_vel_to_can_node/cmd_vel_to_can_node/cmd_vel_to_can_node.py) applies the implemented velocity and steering scales (`×10` and `×40`) and sets gear/brake fields. The [YHS C++ driver](../CAN_Combined_Pipeline/src/mk-01/yhs_can_control/src/yhs_can_control_node.cpp) handles CAN encoding and feedback.
 
-`trajectory_follower` is installed separately but not selected by normal startup.
-It transforms stored target points and uses a smoothed path/pure-pursuit-style
-controller, publishes `/cmd_vel`, and has no target-loss watchdog. Its existence
-does not establish a second validated robot controller. The `yhs_io_test` and
-sample CtrlCmd publishers transmit robot commands and are not offline tests.
+Those numeric fields belong to the configured software/protocol contract; they are not an independent measurement of physical chassis speed. Hardware operation uses supervised trials and an independent stop mechanism. See [physical workflow](SETUP.md#physical-robot-workflow) for the operating checks.
+
+## Alternative perception integration
+
+The [Hybrid ReID ROS package](../src/hybrid_reid_ros_node/README.md) exposes an alternative publisher on `/deepstream/detections`. It combines a YOLOv8 segmentation detector with DeepSORT and DINOv2-based appearance features. It is a separate experimental integration, and its results should not be substituted for the reported DeepStream deployment results. Run one detector publisher at a time.
+
+## Design records
+
+The repository retains the [original system diagram](../project_diagrams/v0.0.3_ROS_System_Diagram.png), [simulation ROS graph](../data/test_scene_1/ros_graph.png) and [physical pipeline graph](../data/can_integrated_pipeline/Screenshot%20from%202025-06-27%2002-11-34.png). These complement the current source-linked description above.

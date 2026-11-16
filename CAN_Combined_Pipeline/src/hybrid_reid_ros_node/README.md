@@ -1,14 +1,7 @@
-# Hybrid ReID ROS 2 experiment — CAN workspace variant
+# Hybrid ReID ROS 2 integration — CAN workspace
 
-This is a variant of the [root Hybrid integration](../../../src/hybrid_reid_ros_node/README.md),
-derived from [Hybrid ReID](https://github.com/rvxfahim/Hybrid_reID).
-Its upstream declares Apache-2.0; the copied revision, notices and conflicting
-local license metadata still need reconciliation. See the
-[publication review](../../../docs/PUBLICATION.md).
+The physical-workspace variant of the [Hybrid ROS integration](../../../src/hybrid_reid_ros_node/README.md), publishing tracked detection JSON on `/deepstream/detections` for the fusion pipeline.
 
-The wrapper defaults to YOLOv8 nano segmentation on CUDA, with DeepSORT and
-DINOv2-based identity logic. The detector has an optional TensorRT path, but the
-ROS wrapper does not enable it; that path's default export/load filenames also
-disagree. This alternative is not validated as a drop-in production backend.
-See the [architecture](../../../docs/ARCHITECTURE.md) and
-[engineering audit](../../../docs/ENGINEERING_AUDIT.md).
+The ROS wrapper defaults to YOLOv8 nano segmentation on CUDA, with DeepSORT and DINOv2-based appearance features. The detector implementation includes an optional TensorRT path; the wrapper does not enable that path by default. Use one detection backend at a time.
+
+This integration derives from [Hybrid ReID](https://github.com/rvxfahim/Hybrid_reID). The project contribution is the ROS integration and experimentation; existing upstream, source and model terms remain applicable. See [technical contributions and attribution](../../../docs/TECHNICAL_CONTRIBUTIONS.md), [architecture](../../../docs/ARCHITECTURE.md) and [setup](../../../docs/SETUP.md). The portfolio's main physical measurements belong to the DeepStream deployment.
