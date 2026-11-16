@@ -1,3 +1,36 @@
-build/*
-**install/
-log/*
+# Colcon products (existing tracked artifacts require a separate cleanup).
+build/
+install/
+log/
+.portfolio-build/
+
+# Python and editor products.
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+.DS_Store
+*.swp
+
+# Local runtime output and hardware recordings.
+*.log
+*.prof
+*.engine
+*.plan
+*.bag
+*.db3
+*.mcap
+
+# Local configuration and credentials; commit sanitized examples explicitly.
+.env
+.env.*
+!.env.example
+.aws/
+.codex/
+.agents/
+.codebase-memory/

@@ -30,9 +30,9 @@ class FeatureExtractor:
         # Initialize DINOv2 model
         try:
             if (model_path is None or not os.path.exists(model_path)):
-                print("Loading pre-trained DINOv2 ViT-S/14 model")
+                print("Loading pre-trained DINOv2 ViT-B/14 model with registers")
                 self.model = torch.hub.load('facebookresearch/dinov2', 'dinov2_vitb14_reg')
-                self.feature_dim = 768   # ViT-S/14 output dimension
+                self.feature_dim = 768   # ViT-B/14 output dimension
             else:
                 print(f"Loading custom model from {model_path}")
                 self.model = torch.load(model_path, map_location=self.device)
